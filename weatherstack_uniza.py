@@ -15,7 +15,7 @@ def parse_weather_data(data):
 
 def main():
     params = {
-        'access_key': '5d1ef2acca5c1dd505a3720029ce1656',
+        'access_key': 'ACCESS_KEY',
         'query': '49.201359, 18.754791',
         'units': 'm'
     }

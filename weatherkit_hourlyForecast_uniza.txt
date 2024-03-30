@@ -1,0 +1,1696 @@
+Printing description of forecast:
+(WeatherKit.Forecast<WeatherKit.HourWeather>?) forecast = some {
+  forecast = 25 values {
+    [0] = {
+      date = 2024-03-29 14:00:00 UTC
+      cloudCover = 0.98999999999999999
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = drizzle
+      symbolName = "cloud.moon.rain"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {
+          baseNSUnitTemperature@0 = {
+            baseNSDimension@0 = {
+              baseNSUnit@0 = {
+                baseNSObject@0 = {
+                  isa = _NSStatic_NSUnitTemperature
+                }
+                _symbol = 0x00000001ee61a280 "°C"
+              }
+              _reserved = 2560
+              _converter = some {
+                some = 0x00000001ee5fcd48 {
+                  baseNSUnitConverterLinear@0 = {
+                    baseNSUnitConverter@0 = {
+                      baseNSObject@0 = {
+                        isa = _NSStatic_NSUnitConverterLinear
+                      }
+                    }
+                    _coefficient = 1
+                    _constant = 273.14999999999998
+                  }
+                }
+              }
+              _icuSubtype = 0x00000001ee61a2a0 "celsius"
+            }
+          }
+        }
+        value = 7.3600000000000003
+      }
+      humidity = 0.87
+      isDaylight = false
+      precipitation = rain
+      precipitationChance = 0.5
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {
+          baseNSUnitLength@0 = {
+            baseNSDimension@0 = {
+              baseNSUnit@0 = {
+                baseNSObject@0 = {
+                  isa = _NSStatic_NSUnitLength
+                }
+                _symbol = 0x00000001ee6195c0 "mm"
+              }
+              _reserved = 1283
+              _converter = some {
+                some = 0x00000001ee5fb2b0 {
+                  baseNSUnitConverterLinear@0 = {
+                    baseNSUnitConverter@0 = {
+                      baseNSObject@0 = {
+                        isa = _NSStatic_NSStaticUnitConverterLinear_NoConst
+                      }
+                    }
+                    _coefficient = 0.001
+                    _constant = 4.0883858241617282E-314
+                  }
+                }
+              }
+              _icuSubtype = 0x00000001ee6195e0 "millimeter"
+            }
+          }
+        }
+        value = 0.60999999999999999
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {
+          baseNSUnitPressure@0 = {
+            baseNSDimension@0 = {
+              baseNSUnit@0 = {
+                baseNSObject@0 = {
+                  isa = _NSStatic_NSUnitPressure
+                }
+                _symbol = 0x00000001ee61a080 "mbar"
+              }
+              _reserved = 2050
+              _converter = some {
+                some = 0x00000001ee5fb120 {
+                  baseNSUnitConverterLinear@0 = {
+                    baseNSUnitConverter@0 = {
+                      baseNSObject@0 = {
+                        isa = _NSStatic_NSStaticUnitConverterLinear_NoConst
+                      }
+                    }
+                    _coefficient = 100
+                    _constant = 4.0883800534749848E-314
+                  }
+                }
+              }
+              _icuSubtype = 0x00000001ee61a0a0 "millibar"
+            }
+          }
+        }
+        value = 1009.9299999999999
+      }
+      pressureTrend = falling
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.3800000000000007
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.3399999999999999
+      }
+      uvIndex = {
+        value = 0
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {
+          baseNSUnitLength@0 = {
+            baseNSDimension@0 = {
+              baseNSUnit@0 = {
+                baseNSObject@0 = {
+                  isa = _NSStatic_NSUnitLength
+                }
+                _symbol = 0x00000001ee619500 "m"
+              }
+              _reserved = 1280
+              _converter = some {
+                some = 0x00000001ee5fad18 {
+                  baseNSUnitConverterLinear@0 = {
+                    baseNSUnitConverter@0 = {
+                      baseNSObject@0 = {
+                        isa = _NSStatic_NSStaticUnitConverterLinear_NoConst
+                      }
+                    }
+                    _coefficient = 1
+                    _constant = 4.0883839388072237E-314
+                  }
+                }
+              }
+              _icuSubtype = 0x00000001ee619520 "meter"
+            }
+          }
+        }
+        value = 13091
+      }
+      wind = {
+        compassDirection = southSoutheast
+        direction = {
+          unit = 0x00000001ee5fad28 {
+            baseNSUnitAngle@0 = {
+              baseNSDimension@0 = {
+                baseNSUnit@0 = {
+                  baseNSObject@0 = {
+                    isa = _NSStatic_NSUnitAngle
+                  }
+                  _symbol = 0x00000001ee618080 "°"
+                }
+                _reserved = 256
+                _converter = some {
+                  some = 0x00000001ee5fad18 {...}
+                }
+                _icuSubtype = 0x00000001ee6180a0 "degree"
+              }
+            }
+          }
+          value = 152
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {
+            baseNSUnitSpeed@0 = {
+              baseNSDimension@0 = {
+                baseNSUnit@0 = {
+                  baseNSObject@0 = {
+                    isa = _NSStatic_NSUnitSpeed
+                  }
+                  _symbol = 0x00000001ee61a1a0 "km/h"
+                }
+                _reserved = 2305
+                _converter = some {
+                  some = 0x00000001ee5fcca0 {
+                    baseNSUnitConverterLinear@0 = {
+                      baseNSUnitConverter@0 = {
+                        baseNSObject@0 = {
+                          isa = _NSStatic_NSStaticUnitConverterLinear_NoConst
+                        }
+                      }
+                      _coefficient = 0.27777800000000002
+                      _constant = 4.0883832866405712E-314
+                    }
+                  }
+                }
+                _icuSubtype = 0x00000001ee61a1c0 "kilometer-per-hour"
+              }
+            }
+          }
+          value = 13.539999999999999
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 25.420000000000002
+        }
+      }
+    }
+    [1] = {
+      date = 2024-03-29 15:00:00 UTC
+      cloudCover = 0.98999999999999999
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = rain
+      symbolName = "cloud.rain"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.5700000000000002
+      }
+      humidity = 0.88
+      isDaylight = true
+      precipitation = rain
+      precipitationChance = 0.62
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0.92000000000000004
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1009.37
+      }
+      pressureTrend = falling
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.5299999999999993
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.4100000000000001
+      }
+      uvIndex = {
+        value = 0
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 9890
+      }
+      wind = {
+        compassDirection = southSoutheast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 150
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 14.4
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 29.050000000000001
+        }
+      }
+    }
+    [2] = {
+      date = 2024-03-29 16:00:00 UTC
+      cloudCover = 0.98999999999999999
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = drizzle
+      symbolName = "cloud.drizzle"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.8200000000000002
+      }
+      humidity = 0.87
+      isDaylight = true
+      precipitation = rain
+      precipitationChance = 0.62
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0.59999999999999998
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1008.64
+      }
+      pressureTrend = falling
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.8499999999999996
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.3899999999999997
+      }
+      uvIndex = {
+        value = 1
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 12336
+      }
+      wind = {
+        compassDirection = southeast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 143
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 17.940000000000001
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 33.979999999999997
+        }
+      }
+    }
+    [3] = {
+      date = 2024-03-29 17:00:00 UTC
+      cloudCover = 0.98999999999999999
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = drizzle
+      symbolName = "cloud.drizzle"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.8300000000000001
+      }
+      humidity = 0.84999999999999998
+      isDaylight = true
+      precipitation = rain
+      precipitationChance = 0.66000000000000003
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0.84999999999999998
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1007.85
+      }
+      pressureTrend = falling
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 10.279999999999999
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.6600000000000001
+      }
+      uvIndex = {
+        value = 1
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 13095
+      }
+      wind = {
+        compassDirection = southeast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 140
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 21.489999999999998
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 39.600000000000001
+        }
+      }
+    }
+    [4] = {
+      date = 2024-03-29 18:00:00 UTC
+      cloudCover = 0.98999999999999999
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = drizzle
+      symbolName = "cloud.drizzle"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.9199999999999999
+      }
+      humidity = 0.83999999999999997
+      isDaylight = true
+      precipitation = rain
+      precipitationChance = 0.67000000000000004
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0.89000000000000001
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1007.1
+      }
+      pressureTrend = falling
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 10.58
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.9600000000000008
+      }
+      uvIndex = {
+        value = 2
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 11501
+      }
+      wind = {
+        compassDirection = southeast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 138
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 23.289999999999999
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 40.100000000000001
+        }
+      }
+    }
+    [5] = {
+      date = 2024-03-29 19:00:00 UTC
+      cloudCover = 0.98999999999999999
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = rain
+      symbolName = "cloud.rain"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.8799999999999998
+      }
+      humidity = 0.81999999999999995
+      isDaylight = true
+      precipitation = rain
+      precipitationChance = 0.68999999999999995
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 1.6100000000000001
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1006.1
+      }
+      pressureTrend = falling
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 10.9
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 10.27
+      }
+      uvIndex = {
+        value = 2
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 8868
+      }
+      wind = {
+        compassDirection = southeast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 141
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 24.239999999999998
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 43.130000000000003
+        }
+      }
+    }
+    [6] = {
+      date = 2024-03-29 20:00:00 UTC
+      cloudCover = 0.98999999999999999
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = rain
+      symbolName = "cloud.rain"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 8.2400000000000002
+      }
+      humidity = 0.82999999999999996
+      isDaylight = true
+      precipitation = rain
+      precipitationChance = 0.70999999999999996
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 2.3599999999999999
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1005.1
+      }
+      pressureTrend = falling
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 10.98
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 10.380000000000001
+      }
+      uvIndex = {
+        value = 2
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 6950
+      }
+      wind = {
+        compassDirection = southeast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 143
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 25.420000000000002
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 49.390000000000001
+        }
+      }
+    }
+    [7] = {
+      date = 2024-03-29 21:00:00 UTC
+      cloudCover = 0.98999999999999999
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = rain
+      symbolName = "cloud.rain"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 8.6600000000000001
+      }
+      humidity = 0.84999999999999998
+      isDaylight = true
+      precipitation = rain
+      precipitationChance = 0.65000000000000002
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 2.6400000000000001
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1003.76
+      }
+      pressureTrend = falling
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 11.119999999999999
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 10.550000000000001
+      }
+      uvIndex = {
+        value = 2
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 9032
+      }
+      wind = {
+        compassDirection = southeast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 137
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 28.890000000000001
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 54.759999999999998
+        }
+      }
+    }
+    [8] = {
+      date = 2024-03-29 22:00:00 UTC
+      cloudCover = 0.96999999999999997
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = rain
+      symbolName = "cloud.rain"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.1099999999999994
+      }
+      humidity = 0.83999999999999997
+      isDaylight = true
+      precipitation = rain
+      precipitationChance = 0.64000000000000001
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 2.0699999999999998
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1002.6
+      }
+      pressureTrend = falling
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 11.65
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 11.109999999999999
+      }
+      uvIndex = {
+        value = 2
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 6555
+      }
+      wind = {
+        compassDirection = southeast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 144
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 28.329999999999998
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 55.299999999999997
+        }
+      }
+    }
+    [9] = {
+      date = 2024-03-29 23:00:00 UTC
+      cloudCover = 0.88
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = rain
+      symbolName = "cloud.rain"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.4800000000000004
+      }
+      humidity = 0.83999999999999997
+      isDaylight = true
+      precipitation = rain
+      precipitationChance = 0.5
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0.92000000000000004
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1001.85
+      }
+      pressureTrend = falling
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 12.18
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 11.66
+      }
+      uvIndex = {
+        value = 2
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 12924
+      }
+      wind = {
+        compassDirection = southSoutheast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 153
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 21.030000000000001
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 44.5
+        }
+      }
+    }
+    [10] = {
+      date = 2024-03-30 00:00:00 UTC
+      cloudCover = 0.71999999999999997
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = rain
+      symbolName = "cloud.rain"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.6799999999999997
+      }
+      humidity = 0.82999999999999996
+      isDaylight = true
+      precipitation = rain
+      precipitationChance = 0.35999999999999999
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 1.0600000000000001
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1001.3099999999999
+      }
+      pressureTrend = falling
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 12.529999999999999
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 12.02
+      }
+      uvIndex = {
+        value = 1
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 13169
+      }
+      wind = {
+        compassDirection = southSoutheast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 164
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 20.760000000000002
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 42.950000000000003
+        }
+      }
+    }
+    [11] = {
+      date = 2024-03-30 01:00:00 UTC
+      cloudCover = 0.67000000000000004
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = mostlyCloudy
+      symbolName = "cloud"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.2300000000000004
+      }
+      humidity = 0.81000000000000005
+      isDaylight = true
+      precipitation = rain
+      precipitationChance = 0.29999999999999999
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0.41999999999999998
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1000.9299999999999
+      }
+      pressureTrend = falling
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 12.359999999999999
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 11.81
+      }
+      uvIndex = {
+        value = 0
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 17947
+      }
+      wind = {
+        compassDirection = south
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 170
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 19.899999999999999
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 40.100000000000001
+        }
+      }
+    }
+    [12] = {
+      date = 2024-03-30 02:00:00 UTC
+      cloudCover = 0.64000000000000001
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = mostlyCloudy
+      symbolName = "cloud"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 8.8499999999999996
+      }
+      humidity = 0.81999999999999995
+      isDaylight = true
+      precipitation = rain
+      precipitationChance = 0.27000000000000002
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0.46999999999999997
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1000.75
+      }
+      pressureTrend = falling
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 11.82
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 11.25
+      }
+      uvIndex = {
+        value = 0
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 18325
+      }
+      wind = {
+        compassDirection = south
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 173
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 19.25
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 38.560000000000002
+        }
+      }
+    }
+    [13] = {
+      date = 2024-03-30 03:00:00 UTC
+      cloudCover = 0.67000000000000004
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = mostlyCloudy
+      symbolName = "cloud"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 8.3900000000000006
+      }
+      humidity = 0.82999999999999996
+      isDaylight = false
+      precipitation = none
+      precipitationChance = 0
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1000.73
+      }
+      pressureTrend = steady
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 11.210000000000001
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 10.609999999999999
+      }
+      uvIndex = {
+        value = 0
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 18140
+      }
+      wind = {
+        compassDirection = southSoutheast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 164
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 18.140000000000001
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 37.479999999999997
+        }
+      }
+    }
+    [14] = {
+      date = 2024-03-30 04:00:00 UTC
+      cloudCover = 0.78000000000000003
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = mostlyCloudy
+      symbolName = "cloud"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 8.2799999999999994
+      }
+      humidity = 0.83999999999999997
+      isDaylight = false
+      precipitation = none
+      precipitationChance = 0
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1000.91
+      }
+      pressureTrend = steady
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 10.880000000000001
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 10.279999999999999
+      }
+      uvIndex = {
+        value = 0
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 16588
+      }
+      wind = {
+        compassDirection = southSoutheast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 158
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 17.91
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 37.329999999999998
+        }
+      }
+    }
+    [15] = {
+      date = 2024-03-30 05:00:00 UTC
+      cloudCover = 0.81999999999999995
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = drizzle
+      symbolName = "cloud.moon.rain"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.9000000000000004
+      }
+      humidity = 0.83999999999999997
+      isDaylight = false
+      precipitation = rain
+      precipitationChance = 0.35999999999999999
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0.32000000000000001
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1001.17
+      }
+      pressureTrend = steady
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 10.49
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.8699999999999992
+      }
+      uvIndex = {
+        value = 0
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 17136
+      }
+      wind = {
+        compassDirection = southSoutheast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 153
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 17.969999999999999
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 39.170000000000002
+        }
+      }
+    }
+    [16] = {
+      date = 2024-03-30 06:00:00 UTC
+      cloudCover = 0.81999999999999995
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = mostlyCloudy
+      symbolName = "cloud"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.9599999999999999
+      }
+      humidity = 0.84999999999999998
+      isDaylight = false
+      precipitation = none
+      precipitationChance = 0
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1001.3
+      }
+      pressureTrend = steady
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 10.34
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.7300000000000004
+      }
+      uvIndex = {
+        value = 0
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 18448
+      }
+      wind = {
+        compassDirection = southSoutheast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 152
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 17.5
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 38.810000000000002
+        }
+      }
+    }
+    [17] = {
+      date = 2024-03-30 07:00:00 UTC
+      cloudCover = 0.81999999999999995
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = mostlyCloudy
+      symbolName = "cloud"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.7699999999999996
+      }
+      humidity = 0.84999999999999998
+      isDaylight = false
+      precipitation = none
+      precipitationChance = 0
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1001.21
+      }
+      pressureTrend = steady
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 10.140000000000001
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.5199999999999996
+      }
+      uvIndex = {
+        value = 0
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 17278
+      }
+      wind = {
+        compassDirection = southeast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 146
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 17.32
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 36.829999999999998
+        }
+      }
+    }
+    [18] = {
+      date = 2024-03-30 08:00:00 UTC
+      cloudCover = 0.79000000000000004
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = drizzle
+      symbolName = "cloud.moon.rain"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.5999999999999996
+      }
+      humidity = 0.85999999999999999
+      isDaylight = false
+      precipitation = rain
+      precipitationChance = 0.32000000000000001
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0.39000000000000001
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1001.03
+      }
+      pressureTrend = steady
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.9000000000000003
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.5199999999999996
+      }
+      uvIndex = {
+        value = 0
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 16544
+      }
+      wind = {
+        compassDirection = southeast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 138
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 17.399999999999999
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 35.259999999999998
+        }
+      }
+    }
+    [19] = {
+      date = 2024-03-30 09:00:00 UTC
+      cloudCover = 0.84999999999999998
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = drizzle
+      symbolName = "cloud.moon.rain"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.4199999999999999
+      }
+      humidity = 0.85999999999999999
+      isDaylight = false
+      precipitation = rain
+      precipitationChance = 0.39000000000000001
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0.52000000000000002
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1000.91
+      }
+      pressureTrend = steady
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.6500000000000003
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.1799999999999997
+      }
+      uvIndex = {
+        value = 0
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 14013
+      }
+      wind = {
+        compassDirection = southeast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 131
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 17.579999999999998
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 35.289999999999999
+        }
+      }
+    }
+    [20] = {
+      date = 2024-03-30 10:00:00 UTC
+      cloudCover = 0.88
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = drizzle
+      symbolName = "cloud.moon.rain"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.1600000000000001
+      }
+      humidity = 0.85999999999999999
+      isDaylight = false
+      precipitation = rain
+      precipitationChance = 0.39000000000000001
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0.40999999999999998
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1000.77
+      }
+      pressureTrend = steady
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.3100000000000005
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 6.75
+      }
+      uvIndex = {
+        value = 0
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 15460
+      }
+      wind = {
+        compassDirection = southeast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 126
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 17.66
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 34.549999999999997
+        }
+      }
+    }
+    [21] = {
+      date = 2024-03-30 11:00:00 UTC
+      cloudCover = 0.92000000000000004
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = drizzle
+      symbolName = "cloud.moon.rain"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.0199999999999996
+      }
+      humidity = 0.85999999999999999
+      isDaylight = false
+      precipitation = rain
+      precipitationChance = 0.37
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0.35999999999999999
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1000.5700000000001
+      }
+      pressureTrend = steady
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.2400000000000002
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 6.6699999999999999
+      }
+      uvIndex = {
+        value = 0
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 16127
+      }
+      wind = {
+        compassDirection = eastSoutheast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 123
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 17.620000000000001
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 33.82
+        }
+      }
+    }
+    [22] = {
+      date = 2024-03-30 12:00:00 UTC
+      cloudCover = 0.92000000000000004
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = cloudy
+      symbolName = "cloud"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 6.8600000000000003
+      }
+      humidity = 0.85999999999999999
+      isDaylight = false
+      precipitation = none
+      precipitationChance = 0
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1000.53
+      }
+      pressureTrend = steady
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.1500000000000004
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 6.5899999999999999
+      }
+      uvIndex = {
+        value = 0
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 17185
+      }
+      wind = {
+        compassDirection = eastSoutheast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 120
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 17.309999999999999
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 33.789999999999999
+        }
+      }
+    }
+    [23] = {
+      date = 2024-03-30 13:00:00 UTC
+      cloudCover = 0.93999999999999994
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = drizzle
+      symbolName = "cloud.moon.rain"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 6.7300000000000004
+      }
+      humidity = 0.85999999999999999
+      isDaylight = false
+      precipitation = rain
+      precipitationChance = 0.34999999999999998
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0.35999999999999999
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1000.66
+      }
+      pressureTrend = steady
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 8.9499999999999993
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 6.4500000000000002
+      }
+      uvIndex = {
+        value = 0
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 14583
+      }
+      wind = {
+        compassDirection = eastSoutheast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 116
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 16.370000000000001
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 31.420000000000002
+        }
+      }
+    }
+    [24] = {
+      date = 2024-03-30 14:00:00 UTC
+      cloudCover = 0.97999999999999998
+      cloudCoverLow = 0
+      cloudCoverMid = 0
+      cloudCoverHigh = 0
+      condition = cloudy
+      symbolName = "cloud"
+      dewPoint = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 6.6100000000000003
+      }
+      humidity = 0.85999999999999999
+      isDaylight = true
+      precipitation = none
+      precipitationChance = 0
+      precipitationAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      pressure = {
+        unit = 0x00000001ee5fcbe0 {...}
+        value = 1001.08
+      }
+      pressureTrend = steady
+      temperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 8.7599999999999998
+      }
+      apparentTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 6.4199999999999999
+      }
+      uvIndex = {
+        value = 0
+        category = low
+      }
+      visibility = {
+        unit = 0x00000001ee5fc250 {...}
+        value = 16916
+      }
+      wind = {
+        compassDirection = eastSoutheast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 107
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 14.73
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 27.370000000000001
+        }
+      }
+    }
+  }
+  metadata = {
+    date = 2024-03-29 14:37:02 UTC
+    expirationDate = 2024-03-29 15:37:02 UTC
+    latitude = 37.621000000000002
+    longitude = -122.379
+    attribution = some {
+      serviceName = "Apple Weather"
+      legalPageURL = "https://weather-data.apple.com/legal-attribution.html"
+      squareMarkURL = "https://weather-data.apple.com/assets/branding/square-mark.png"
+      combinedMarkDarkURL = "https://weather-data.apple.com/assets/branding/combined-mark-dark.png"
+      combinedMarkLightURL = "https://weather-data.apple.com/assets/branding/combined-mark-light.png"
+      name = "Apple Weather"
+      sourceURL = "https://weather-data.apple.com/legal-attribution.html"
+      logoURL = "https://weather-data.apple.com/assets/branding/combined-mark-dark.png"
+      logo = nil
+    }
+  }
+  minuteSummary = nil
+  minuteConditions = nil
+  minuteSummaries = nil
+}

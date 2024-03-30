@@ -1,0 +1,274 @@
+(WeatherKit.CurrentWeather?) forcast = some {
+  date = 2024-03-29 14:50:57 UTC
+  cloudCover = 0.98999999999999999
+  cloudCoverLow = 0.88
+  cloudCoverMid = 1
+  cloudCoverHigh = 1
+  condition = rain
+  symbolName = "cloud.rain"
+  dewPoint = {
+    unit = 0x00000001ee5fcd60 {
+      baseNSUnitTemperature@0 = {
+        baseNSDimension@0 = {
+          baseNSUnit@0 = {
+            baseNSObject@0 = {
+              isa = _NSStatic_NSUnitTemperature
+            }
+            _symbol = 0x00000001ee61a280 "°C"
+          }
+          _reserved = 2560
+          _converter = some {
+            some = 0x00000001ee5fcd48 {
+              baseNSUnitConverterLinear@0 = {
+                baseNSUnitConverter@0 = {
+                  baseNSObject@0 = {
+                    isa = _NSStatic_NSUnitConverterLinear
+                  }
+                }
+                _coefficient = 1
+                _constant = 273.14999999999998
+              }
+            }
+          }
+          _icuSubtype = 0x00000001ee61a2a0 "celsius"
+        }
+      }
+    }
+    value = 7.54
+  }
+  humidity = 0.88
+  precipitationIntensity = {
+    unit = 0x00000002809bc6c0 {
+      baseNSDimension@0 = {
+        baseNSUnit@0 = {
+          baseNSObject@0 = {
+            isa = NSUnitSpeed
+          }
+          _symbol = "mm/h" {
+            some = 0x8e1fb3d82e829fe5 "mm/h"
+          }
+        }
+        _reserved = 18446744073709551615
+        _converter = some {
+          some = 0x000000028073cea0 {
+            baseNSUnitConverter@0 = {
+              baseNSObject@0 = {
+                isa = NSUnitConverterLinear
+              }
+            }
+            _coefficient = 2.7776999999999998E-7
+            _constant = 0
+          }
+        }
+        _icuSubtype = 0x0000000000000000
+      }
+    }
+    value = 0.91000000000000003
+  }
+  pressure = {
+    unit = 0x00000001ee5fcbe0 {
+      baseNSUnitPressure@0 = {
+        baseNSDimension@0 = {
+          baseNSUnit@0 = {
+            baseNSObject@0 = {
+              isa = _NSStatic_NSUnitPressure
+            }
+            _symbol = 0x00000001ee61a080 "mbar"
+          }
+          _reserved = 2050
+          _converter = some {
+            some = 0x00000001ee5fb120 {
+              baseNSUnitConverterLinear@0 = {
+                baseNSUnitConverter@0 = {
+                  baseNSObject@0 = {
+                    isa = _NSStatic_NSStaticUnitConverterLinear_NoConst
+                  }
+                }
+                _coefficient = 100
+                _constant = 4.0883800534749848E-314
+              }
+            }
+          }
+          _icuSubtype = 0x00000001ee61a0a0 "millibar"
+        }
+      }
+    }
+    value = 1009.46
+  }
+  pressureTrend = falling
+  rainfallAmount = {
+    pastHour = {
+      unit = 0x00000001ee5fc2d8 {
+        baseNSUnitLength@0 = {
+          baseNSDimension@0 = {
+            baseNSUnit@0 = {
+              baseNSObject@0 = {
+                isa = _NSStatic_NSUnitLength
+              }
+              _symbol = 0x00000001ee6195c0 "mm"
+            }
+            _reserved = 1283
+            _converter = some {
+              some = 0x00000001ee5fb2b0 {
+                baseNSUnitConverterLinear@0 = {
+                  baseNSUnitConverter@0 = {
+                    baseNSObject@0 = {
+                      isa = _NSStatic_NSStaticUnitConverterLinear_NoConst
+                    }
+                  }
+                  _coefficient = 0.001
+                  _constant = 4.0883858241617282E-314
+                }
+              }
+            }
+            _icuSubtype = 0x00000001ee6195e0 "millimeter"
+          }
+        }
+      }
+      value = 0
+    }
+    pastSixHours = {
+      unit = 0x00000001ee5fc2d8 {...}
+      value = 0
+    }
+    pastTwentyFourHours = {
+      unit = 0x00000001ee5fc2d8 {...}
+      value = 0
+    }
+    nextTwentyFourHours = {
+      unit = 0x00000001ee5fc2d8 {...}
+      value = 0
+    }
+  }
+  snowfallAmount = {
+    pastHour = {
+      unit = 0x00000001ee5fc2d8 {...}
+      value = 0
+    }
+    pastSixHours = {
+      unit = 0x00000001ee5fc2d8 {...}
+      value = 0
+    }
+    pastTwentyFourHours = {
+      unit = 0x00000001ee5fc2d8 {...}
+      value = 0
+    }
+    nextTwentyFourHours = {
+      unit = 0x00000001ee5fc2d8 {...}
+      value = 0
+    }
+  }
+  precipitationAmountByType = {
+    pastTwentyFourHours = 0 key/value pairs {}
+    nextTwentyFourHours = 0 key/value pairs {}
+  }
+  isDaylight = true
+  temperature = {
+    unit = 0x00000001ee5fcd60 {...}
+    value = 9.5
+  }
+  apparentTemperature = {
+    unit = 0x00000001ee5fcd60 {...}
+    value = 7.4000000000000004
+  }
+  highTemperature = nil
+  lowTemperature = nil
+  uvIndex = {
+    value = 0
+    category = low
+  }
+  visibility = {
+    unit = 0x00000001ee5fc250 {
+      baseNSUnitLength@0 = {
+        baseNSDimension@0 = {
+          baseNSUnit@0 = {
+            baseNSObject@0 = {
+              isa = _NSStatic_NSUnitLength
+            }
+            _symbol = 0x00000001ee619500 "m"
+          }
+          _reserved = 1280
+          _converter = some {
+            some = 0x00000001ee5fad18 {
+              baseNSUnitConverterLinear@0 = {
+                baseNSUnitConverter@0 = {
+                  baseNSObject@0 = {
+                    isa = _NSStatic_NSStaticUnitConverterLinear_NoConst
+                  }
+                }
+                _coefficient = 1
+                _constant = 4.0883839388072237E-314
+              }
+            }
+          }
+          _icuSubtype = 0x00000001ee619520 "meter"
+        }
+      }
+    }
+    value = 10086.860000000001
+  }
+  wind = {
+    compassDirection = southSoutheast
+    direction = {
+      unit = 0x00000001ee5fad28 {
+        baseNSUnitAngle@0 = {
+          baseNSDimension@0 = {
+            baseNSUnit@0 = {
+              baseNSObject@0 = {
+                isa = _NSStatic_NSUnitAngle
+              }
+              _symbol = 0x00000001ee618080 "°"
+            }
+            _reserved = 256
+            _converter = some {
+              some = 0x00000001ee5fad18 {...}
+            }
+            _icuSubtype = 0x00000001ee6180a0 "degree"
+          }
+        }
+      }
+      value = 150
+    }
+    speed = {
+      unit = 0x00000001ee5fccb0 {
+        baseNSUnitSpeed@0 = {
+          baseNSDimension@0 = {
+            baseNSUnit@0 = {
+              baseNSObject@0 = {
+                isa = _NSStatic_NSUnitSpeed
+              }
+              _symbol = 0x00000001ee61a1a0 "km/h"
+            }
+            _reserved = 2305
+            _converter = some {
+              some = 0x00000001ee5fcca0 {
+                baseNSUnitConverterLinear@0 = {
+                  baseNSUnitConverter@0 = {
+                    baseNSObject@0 = {
+                      isa = _NSStatic_NSStaticUnitConverterLinear_NoConst
+                    }
+                  }
+                  _coefficient = 0.27777800000000002
+                  _constant = 4.0883832866405712E-314
+                }
+              }
+            }
+            _icuSubtype = 0x00000001ee61a1c0 "kilometer-per-hour"
+          }
+        }
+      }
+      value = 14.130000000000001
+    }
+    gust = some {
+      unit = 0x00000001ee5fccb0 {...}
+      value = 28.420000000000002
+    }
+  }
+  metadata = {
+    date = 2024-03-29 14:50:57 UTC
+    expirationDate = 2024-03-29 14:55:57 UTC
+    latitude = 37.621000000000002
+    longitude = -122.379
+    attribution = nil
+  }
+}

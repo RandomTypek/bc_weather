@@ -1,0 +1,1806 @@
+Printing description of forcast:
+(WeatherKit.Forecast<WeatherKit.DayWeather>?) forcast = some {
+  forecast = 10 values {
+    [0] = {
+      date = 2024-03-29 07:00:00 UTC
+      condition = rain
+      symbolName = "cloud.rain"
+      highTemperature = {
+        unit = 0x00000001ee5fcd60 {
+          baseNSUnitTemperature@0 = {
+            baseNSDimension@0 = {
+              baseNSUnit@0 = {
+                baseNSObject@0 = {
+                  isa = _NSStatic_NSUnitTemperature
+                }
+                _symbol = 0x00000001ee61a280 "°C"
+              }
+              _reserved = 2560
+              _converter = some {
+                some = 0x00000001ee5fcd48 {
+                  baseNSUnitConverterLinear@0 = {
+                    baseNSUnitConverter@0 = {
+                      baseNSObject@0 = {
+                        isa = _NSStatic_NSUnitConverterLinear
+                      }
+                    }
+                    _coefficient = 1
+                    _constant = 273.14999999999998
+                  }
+                }
+              }
+              _icuSubtype = 0x00000001ee61a2a0 "celsius"
+            }
+          }
+        }
+        value = 12.539999999999999
+      }
+      highTemperatureDate = nil
+      lowTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 8.9199999999999999
+      }
+      lowTemperatureDate = nil
+      humidity = 0
+      humidityMax = 0
+      humidityMin = 0
+      precipitation = rain
+      precipitationChance = 0.93999999999999994
+      rainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {
+          baseNSUnitLength@0 = {
+            baseNSDimension@0 = {
+              baseNSUnit@0 = {
+                baseNSObject@0 = {
+                  isa = _NSStatic_NSUnitLength
+                }
+                _symbol = 0x00000001ee6195c0 "mm"
+              }
+              _reserved = 1283
+              _converter = some {
+                some = 0x00000001ee5fb2b0 {
+                  baseNSUnitConverterLinear@0 = {
+                    baseNSUnitConverter@0 = {
+                      baseNSObject@0 = {
+                        isa = _NSStatic_NSStaticUnitConverterLinear_NoConst
+                      }
+                    }
+                    _coefficient = 0.001
+                    _constant = 4.0883858241617282E-314
+                  }
+                }
+              }
+              _icuSubtype = 0x00000001ee6195e0 "millimeter"
+            }
+          }
+        }
+        value = 15.74
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDayRainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 15.74
+      }
+      wholeDaySnowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      precipitationAmountByType = 0 key/value pairs {}
+      sun = {
+        astronomicalDawn = 2024-03-29 12:29:45 UTC
+        nauticalDawn = 2024-03-29 13:01:13 UTC
+        civilDawn = 2024-03-29 13:32:16 UTC
+        sunrise = 2024-03-29 13:58:25 UTC
+        solarNoon = 2024-03-29 20:14:14 UTC
+        sunset = 2024-03-30 02:30:26 UTC
+        civilDusk = 2024-03-30 02:56:41 UTC
+        nauticalDusk = 2024-03-30 03:27:48 UTC
+        astronomicalDusk = 2024-03-30 03:59:27 UTC
+        solarMidnight = 2024-03-29 08:14:00 UTC
+      }
+      moon = {
+        phase = waningGibbous
+        moonrise = nil
+        moonset = 2024-03-29 16:01:02 UTC
+      }
+      uvIndex = {
+        value = 2
+        category = low
+      }
+      visibilityMax = 0
+      visibilityMin = 0
+      wind = {
+        compassDirection = southSoutheast
+        direction = {
+          unit = 0x00000001ee5fad28 {
+            baseNSUnitAngle@0 = {
+              baseNSDimension@0 = {
+                baseNSUnit@0 = {
+                  baseNSObject@0 = {
+                    isa = _NSStatic_NSUnitAngle
+                  }
+                  _symbol = 0x00000001ee618080 "°"
+                }
+                _reserved = 256
+                _converter = some {
+                  some = 0x00000001ee5fad18 {
+                    baseNSUnitConverterLinear@0 = {
+                      baseNSUnitConverter@0 = {
+                        baseNSObject@0 = {
+                          isa = _NSStatic_NSStaticUnitConverterLinear_NoConst
+                        }
+                      }
+                      _coefficient = 1
+                      _constant = 4.0883839388072237E-314
+                    }
+                  }
+                }
+                _icuSubtype = 0x00000001ee6180a0 "degree"
+              }
+            }
+          }
+          value = 150
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {
+            baseNSUnitSpeed@0 = {
+              baseNSDimension@0 = {
+                baseNSUnit@0 = {
+                  baseNSObject@0 = {
+                    isa = _NSStatic_NSUnitSpeed
+                  }
+                  _symbol = 0x00000001ee61a1a0 "km/h"
+                }
+                _reserved = 2305
+                _converter = some {
+                  some = 0x00000001ee5fcca0 {
+                    baseNSUnitConverterLinear@0 = {
+                      baseNSUnitConverter@0 = {
+                        baseNSObject@0 = {
+                          isa = _NSStatic_NSStaticUnitConverterLinear_NoConst
+                        }
+                      }
+                      _coefficient = 0.27777800000000002
+                      _constant = 4.0883832866405712E-314
+                    }
+                  }
+                }
+                _icuSubtype = 0x00000001ee61a1c0 "kilometer-per-hour"
+              }
+            }
+          }
+          value = 20.969999999999999
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 56.140000000000001
+        }
+      }
+      windGustSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 56.140000000000001
+      }
+      windSpeedAvg = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 15.98
+      }
+      windSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 29.289999999999999
+      }
+      daytimeForecast = some {
+        precipitation = rain
+        cloudCover = 0.92000000000000004
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = rain
+        humidity = 0.83999999999999997
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 14.949999999999999
+        }
+        precipitationChance = 0.91000000000000003
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 148
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 56.140000000000001
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 21.850000000000001
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 29.289999999999999
+        }
+      }
+      overnightForecast = some {
+        precipitation = rain
+        cloudCover = 0.83999999999999997
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = drizzle
+        humidity = 0.84999999999999998
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 2.8399999999999999
+        }
+        precipitationChance = 0.72999999999999998
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 140
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 39.270000000000003
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 17.48
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 19.25
+        }
+      }
+      restOfDayForecast = some {
+        precipitation = rain
+        cloudCover = 0.87
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = rain
+        humidity = 0.83999999999999997
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 15.359999999999999
+        }
+        precipitationChance = 0.94999999999999996
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 150
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 56.140000000000001
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 20.969999999999999
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 29.289999999999999
+        }
+      }
+    }
+    [1] = {
+      date = 2024-03-30 07:00:00 UTC
+      condition = drizzle
+      symbolName = "cloud.drizzle"
+      highTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 14.869999999999999
+      }
+      highTemperatureDate = nil
+      lowTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 8.75
+      }
+      lowTemperatureDate = nil
+      humidity = 0
+      humidityMax = 0
+      humidityMin = 0
+      precipitation = rain
+      precipitationChance = 0.82999999999999996
+      rainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 3.3799999999999999
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDayRainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 3.3799999999999999
+      }
+      wholeDaySnowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      precipitationAmountByType = 0 key/value pairs {}
+      sun = {
+        astronomicalDawn = 2024-03-30 12:28:04 UTC
+        nauticalDawn = 2024-03-30 12:59:37 UTC
+        civilDawn = 2024-03-30 13:30:44 UTC
+        sunrise = 2024-03-30 13:56:56 UTC
+        solarNoon = 2024-03-30 20:13:56 UTC
+        sunset = 2024-03-31 02:31:21 UTC
+        civilDusk = 2024-03-31 02:57:37 UTC
+        nauticalDusk = 2024-03-31 03:28:48 UTC
+        astronomicalDusk = 2024-03-31 04:00:33 UTC
+        solarMidnight = 2024-03-30 08:13:42 UTC
+      }
+      moon = {
+        phase = waningGibbous
+        moonrise = 2024-03-30 07:16:01 UTC
+        moonset = 2024-03-30 16:39:19 UTC
+      }
+      uvIndex = {
+        value = 3
+        category = moderate
+      }
+      visibilityMax = 0
+      visibilityMin = 0
+      wind = {
+        compassDirection = eastNortheast
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 61
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 14.640000000000001
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 28.280000000000001
+        }
+      }
+      windGustSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 36.829999999999998
+      }
+      windSpeedAvg = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 14.06
+      }
+      windSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 17.66
+      }
+      daytimeForecast = some {
+        precipitation = rain
+        cloudCover = 0.84999999999999998
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = drizzle
+        humidity = 0.72999999999999998
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 1.3300000000000001
+        }
+        precipitationChance = 0.52000000000000002
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 61
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 28.280000000000001
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 14.640000000000001
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 16.370000000000001
+        }
+      }
+      overnightForecast = some {
+        precipitation = none
+        cloudCover = 0.52000000000000002
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = partlyCloudy
+        humidity = 0.83999999999999997
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        precipitationChance = 0
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 48
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 25.02
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 6.5099999999999998
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 12.720000000000001
+        }
+      }
+      restOfDayForecast = nil
+    }
+    [2] = {
+      date = 2024-03-31 07:00:00 UTC
+      condition = partlyCloudy
+      symbolName = "cloud.sun"
+      highTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 15.699999999999999
+      }
+      highTemperatureDate = nil
+      lowTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.0199999999999996
+      }
+      lowTemperatureDate = nil
+      humidity = 0
+      humidityMax = 0
+      humidityMin = 0
+      precipitation = none
+      precipitationChance = 0
+      rainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDayRainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDaySnowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      precipitationAmountByType = 0 key/value pairs {}
+      sun = {
+        astronomicalDawn = 2024-03-31 12:26:22 UTC
+        nauticalDawn = 2024-03-31 12:58:03 UTC
+        civilDawn = 2024-03-31 13:29:12 UTC
+        sunrise = 2024-03-31 13:55:26 UTC
+        solarNoon = 2024-03-31 20:13:38 UTC
+        sunset = 2024-04-01 02:32:15 UTC
+        civilDusk = 2024-04-01 02:58:33 UTC
+        nauticalDusk = 2024-04-01 03:29:48 UTC
+        astronomicalDusk = 2024-04-01 04:01:39 UTC
+        solarMidnight = 2024-03-31 08:13:24 UTC
+      }
+      moon = {
+        phase = waningGibbous
+        moonrise = 2024-03-31 08:20:33 UTC
+        moonset = 2024-03-31 17:26:21 UTC
+      }
+      uvIndex = {
+        value = 4
+        category = moderate
+      }
+      visibilityMax = 0
+      visibilityMin = 0
+      wind = {
+        compassDirection = west
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 263
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 11
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 25.420000000000002
+        }
+      }
+      windGustSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 25.420000000000002
+      }
+      windSpeedAvg = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 8.6999999999999993
+      }
+      windSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 16.98
+      }
+      daytimeForecast = some {
+        precipitation = none
+        cloudCover = 0.46000000000000002
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = partlyCloudy
+        humidity = 0.73999999999999999
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        precipitationChance = 0
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 263
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 25.420000000000002
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 11
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 16.98
+        }
+      }
+      overnightForecast = some {
+        precipitation = none
+        cloudCover = 0.27000000000000002
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = mostlyClear
+        humidity = 0.85999999999999999
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        precipitationChance = 0
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 250
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 21.149999999999999
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 6.4500000000000002
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 12.539999999999999
+        }
+      }
+      restOfDayForecast = nil
+    }
+    [3] = {
+      date = 2024-04-01 07:00:00 UTC
+      condition = clear
+      symbolName = "sun.max"
+      highTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 18.789999999999999
+      }
+      highTemperatureDate = nil
+      lowTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.0700000000000002
+      }
+      lowTemperatureDate = nil
+      humidity = 0
+      humidityMax = 0
+      humidityMin = 0
+      precipitation = none
+      precipitationChance = 0
+      rainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDayRainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDaySnowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      precipitationAmountByType = 0 key/value pairs {}
+      sun = {
+        astronomicalDawn = 2024-04-01 12:24:40 UTC
+        nauticalDawn = 2024-04-01 12:56:29 UTC
+        civilDawn = 2024-04-01 13:27:40 UTC
+        sunrise = 2024-04-01 13:53:57 UTC
+        solarNoon = 2024-04-01 20:13:20 UTC
+        sunset = 2024-04-02 02:33:10 UTC
+        civilDusk = 2024-04-02 02:59:29 UTC
+        nauticalDusk = 2024-04-02 03:30:49 UTC
+        astronomicalDusk = 2024-04-02 04:02:46 UTC
+        solarMidnight = 2024-04-01 08:13:06 UTC
+      }
+      moon = {
+        phase = waningGibbous
+        moonrise = 2024-04-01 09:21:40 UTC
+        moonset = 2024-04-01 18:23:24 UTC
+      }
+      uvIndex = {
+        value = 6
+        category = high
+      }
+      visibilityMax = 0
+      visibilityMin = 0
+      wind = {
+        compassDirection = northNorthwest
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 339
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 8.0099999999999998
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 22.620000000000001
+        }
+      }
+      windGustSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 22.620000000000001
+      }
+      windSpeedAvg = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 6.8099999999999996
+      }
+      windSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 14.130000000000001
+      }
+      daytimeForecast = some {
+        precipitation = none
+        cloudCover = 0.070000000000000007
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = clear
+        humidity = 0.62
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        precipitationChance = 0
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 339
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 22.620000000000001
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 8.0099999999999998
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 14.130000000000001
+        }
+      }
+      overnightForecast = some {
+        precipitation = none
+        cloudCover = 0.050000000000000003
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = clear
+        humidity = 0.81000000000000005
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        precipitationChance = 0
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 222
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 18.449999999999999
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 5.2300000000000004
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 9.8599999999999994
+        }
+      }
+      restOfDayForecast = nil
+    }
+    [4] = {
+      date = 2024-04-02 07:00:00 UTC
+      condition = mostlyClear
+      symbolName = "sun.max"
+      highTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 19.300000000000001
+      }
+      highTemperatureDate = nil
+      lowTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 9.4700000000000006
+      }
+      lowTemperatureDate = nil
+      humidity = 0
+      humidityMax = 0
+      humidityMin = 0
+      precipitation = none
+      precipitationChance = 0
+      rainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDayRainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDaySnowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      precipitationAmountByType = 0 key/value pairs {}
+      sun = {
+        astronomicalDawn = 2024-04-02 12:22:58 UTC
+        nauticalDawn = 2024-04-02 12:54:54 UTC
+        civilDawn = 2024-04-02 13:26:08 UTC
+        sunrise = 2024-04-02 13:52:28 UTC
+        solarNoon = 2024-04-02 20:13:02 UTC
+        sunset = 2024-04-03 02:34:04 UTC
+        civilDusk = 2024-04-03 03:00:26 UTC
+        nauticalDusk = 2024-04-03 03:31:49 UTC
+        astronomicalDusk = 2024-04-03 04:03:53 UTC
+        solarMidnight = 2024-04-02 08:12:48 UTC
+      }
+      moon = {
+        phase = lastQuarter
+        moonrise = 2024-04-02 10:16:23 UTC
+        moonset = 2024-04-02 19:29:41 UTC
+      }
+      uvIndex = {
+        value = 7
+        category = high
+      }
+      visibilityMax = 0
+      visibilityMin = 0
+      wind = {
+        compassDirection = west
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 271
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 7.8600000000000003
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 23.449999999999999
+        }
+      }
+      windGustSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 23.449999999999999
+      }
+      windSpeedAvg = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 7.0800000000000001
+      }
+      windSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 13.32
+      }
+      daytimeForecast = some {
+        precipitation = none
+        cloudCover = 0.070000000000000007
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = clear
+        humidity = 0.68000000000000005
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        precipitationChance = 0
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 271
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 23.449999999999999
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 7.8600000000000003
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 13.32
+        }
+      }
+      overnightForecast = some {
+        precipitation = none
+        cloudCover = 0.58999999999999997
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = partlyCloudy
+        humidity = 0.85999999999999999
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        precipitationChance = 0
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 255
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 21.09
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 7.29
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 11.08
+        }
+      }
+      restOfDayForecast = nil
+    }
+    [5] = {
+      date = 2024-04-03 07:00:00 UTC
+      condition = partlyCloudy
+      symbolName = "cloud.sun"
+      highTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 16.27
+      }
+      highTemperatureDate = nil
+      lowTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 10.57
+      }
+      lowTemperatureDate = nil
+      humidity = 0
+      humidityMax = 0
+      humidityMin = 0
+      precipitation = none
+      precipitationChance = 0
+      rainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDayRainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDaySnowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      precipitationAmountByType = 0 key/value pairs {}
+      sun = {
+        astronomicalDawn = 2024-04-03 12:21:16 UTC
+        nauticalDawn = 2024-04-03 12:53:20 UTC
+        civilDawn = 2024-04-03 13:24:36 UTC
+        sunrise = 2024-04-03 13:51:00 UTC
+        solarNoon = 2024-04-03 20:12:45 UTC
+        sunset = 2024-04-04 02:34:58 UTC
+        civilDusk = 2024-04-04 03:01:23 UTC
+        nauticalDusk = 2024-04-04 03:32:50 UTC
+        astronomicalDusk = 2024-04-04 04:05:01 UTC
+        solarMidnight = 2024-04-03 08:12:31 UTC
+      }
+      moon = {
+        phase = waningCrescent
+        moonrise = 2024-04-03 11:03:13 UTC
+        moonset = 2024-04-03 20:42:21 UTC
+      }
+      uvIndex = {
+        value = 5
+        category = moderate
+      }
+      visibilityMax = 0
+      visibilityMin = 0
+      wind = {
+        compassDirection = west
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 274
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 13.779999999999999
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 39.490000000000002
+        }
+      }
+      windGustSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 44.640000000000001
+      }
+      windSpeedAvg = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 12.539999999999999
+      }
+      windSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 20.84
+      }
+      daytimeForecast = some {
+        precipitation = none
+        cloudCover = 0.64000000000000001
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = mostlyCloudy
+        humidity = 0.73999999999999999
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        precipitationChance = 0
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 274
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 39.490000000000002
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 13.779999999999999
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 20.84
+        }
+      }
+      overnightForecast = some {
+        precipitation = none
+        cloudCover = 0.37
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = mostlyClear
+        humidity = 0.73999999999999999
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        precipitationChance = 0
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 293
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 47.700000000000003
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 17.899999999999999
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 20.559999999999999
+        }
+      }
+      restOfDayForecast = nil
+    }
+    [6] = {
+      date = 2024-04-04 07:00:00 UTC
+      condition = mostlyClear
+      symbolName = "sun.max"
+      highTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 12.699999999999999
+      }
+      highTemperatureDate = nil
+      lowTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 8.4399999999999995
+      }
+      lowTemperatureDate = nil
+      humidity = 0
+      humidityMax = 0
+      humidityMin = 0
+      precipitation = none
+      precipitationChance = 0
+      rainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDayRainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDaySnowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      precipitationAmountByType = 0 key/value pairs {}
+      sun = {
+        astronomicalDawn = 2024-04-04 12:19:33 UTC
+        nauticalDawn = 2024-04-04 12:51:45 UTC
+        civilDawn = 2024-04-04 13:23:05 UTC
+        sunrise = 2024-04-04 13:49:31 UTC
+        solarNoon = 2024-04-04 20:12:27 UTC
+        sunset = 2024-04-05 02:35:53 UTC
+        civilDusk = 2024-04-05 03:02:20 UTC
+        nauticalDusk = 2024-04-05 03:33:52 UTC
+        astronomicalDusk = 2024-04-05 04:06:10 UTC
+        solarMidnight = 2024-04-04 08:12:13 UTC
+      }
+      moon = {
+        phase = waningCrescent
+        moonrise = 2024-04-04 11:42:45 UTC
+        moonset = 2024-04-04 21:57:51 UTC
+      }
+      uvIndex = {
+        value = 4
+        category = moderate
+      }
+      visibilityMax = 0
+      visibilityMin = 0
+      wind = {
+        compassDirection = westNorthwest
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 297
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 26.23
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 55.32
+        }
+      }
+      windGustSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 55.32
+      }
+      windSpeedAvg = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 22.969999999999999
+      }
+      windSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 31.949999999999999
+      }
+      daytimeForecast = some {
+        precipitation = none
+        cloudCover = 0.31
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = windy
+        humidity = 0.60999999999999999
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        precipitationChance = 0
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 297
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 55.32
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 26.23
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 31.949999999999999
+        }
+      }
+      overnightForecast = some {
+        precipitation = none
+        cloudCover = 0.46000000000000002
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = partlyCloudy
+        humidity = 0.72999999999999998
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        precipitationChance = 0
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 300
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 48.710000000000001
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 19.350000000000001
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 28.170000000000002
+        }
+      }
+      restOfDayForecast = nil
+    }
+    [7] = {
+      date = 2024-04-05 07:00:00 UTC
+      condition = partlyCloudy
+      symbolName = "cloud.sun"
+      highTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 12.94
+      }
+      highTemperatureDate = nil
+      lowTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 6.8600000000000003
+      }
+      lowTemperatureDate = nil
+      humidity = 0
+      humidityMax = 0
+      humidityMin = 0
+      precipitation = none
+      precipitationChance = 0
+      rainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDayRainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDaySnowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      precipitationAmountByType = 0 key/value pairs {}
+      sun = {
+        astronomicalDawn = 2024-04-05 12:17:50 UTC
+        nauticalDawn = 2024-04-05 12:50:10 UTC
+        civilDawn = 2024-04-05 13:21:33 UTC
+        sunrise = 2024-04-05 13:48:03 UTC
+        solarNoon = 2024-04-05 20:12:10 UTC
+        sunset = 2024-04-06 02:36:47 UTC
+        civilDusk = 2024-04-06 03:03:17 UTC
+        nauticalDusk = 2024-04-06 03:34:53 UTC
+        astronomicalDusk = 2024-04-06 04:07:18 UTC
+        solarMidnight = 2024-04-05 08:11:56 UTC
+      }
+      moon = {
+        phase = waningCrescent
+        moonrise = 2024-04-05 12:16:20 UTC
+        moonset = 2024-04-05 23:13:57 UTC
+      }
+      uvIndex = {
+        value = 4
+        category = moderate
+      }
+      visibilityMax = 0
+      visibilityMin = 0
+      wind = {
+        compassDirection = northwest
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 309
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 20.5
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 41.359999999999999
+        }
+      }
+      windGustSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 41.359999999999999
+      }
+      windSpeedAvg = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 17.84
+      }
+      windSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 25.649999999999999
+      }
+      daytimeForecast = some {
+        precipitation = none
+        cloudCover = 0.38
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = partlyCloudy
+        humidity = 0.58999999999999997
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        precipitationChance = 0
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 309
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 41.359999999999999
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 20.5
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 25.649999999999999
+        }
+      }
+      overnightForecast = some {
+        precipitation = none
+        cloudCover = 0.20999999999999999
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = mostlyClear
+        humidity = 0.82999999999999996
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        precipitationChance = 0
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 280
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 32.729999999999997
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 8.5800000000000001
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 20.09
+        }
+      }
+      restOfDayForecast = nil
+    }
+    [8] = {
+      date = 2024-04-06 07:00:00 UTC
+      condition = partlyCloudy
+      symbolName = "cloud.sun"
+      highTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 13.82
+      }
+      highTemperatureDate = nil
+      lowTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.1500000000000004
+      }
+      lowTemperatureDate = nil
+      humidity = 0
+      humidityMax = 0
+      humidityMin = 0
+      precipitation = none
+      precipitationChance = 0
+      rainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDayRainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDaySnowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      precipitationAmountByType = 0 key/value pairs {}
+      sun = {
+        astronomicalDawn = 2024-04-06 12:16:08 UTC
+        nauticalDawn = 2024-04-06 12:48:36 UTC
+        civilDawn = 2024-04-06 13:20:02 UTC
+        sunrise = 2024-04-06 13:46:35 UTC
+        solarNoon = 2024-04-06 20:11:53 UTC
+        sunset = 2024-04-07 02:37:41 UTC
+        civilDusk = 2024-04-07 03:04:14 UTC
+        nauticalDusk = 2024-04-07 03:35:55 UTC
+        astronomicalDusk = 2024-04-07 04:08:28 UTC
+        solarMidnight = 2024-04-06 08:11:39 UTC
+      }
+      moon = {
+        phase = waningCrescent
+        moonrise = 2024-04-06 12:46:05 UTC
+        moonset = 2024-04-07 00:29:33 UTC
+      }
+      uvIndex = {
+        value = 4
+        category = moderate
+      }
+      visibilityMax = 0
+      visibilityMin = 0
+      wind = {
+        compassDirection = westSouthwest
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 252
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 15.210000000000001
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 36.390000000000001
+        }
+      }
+      windGustSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 36.390000000000001
+      }
+      windSpeedAvg = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 13.109999999999999
+      }
+      windSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 23.170000000000002
+      }
+      daytimeForecast = some {
+        precipitation = none
+        cloudCover = 0.44
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = partlyCloudy
+        humidity = 0.68999999999999995
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        precipitationChance = 0
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 252
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 36.390000000000001
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 15.210000000000001
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 23.170000000000002
+        }
+      }
+      overnightForecast = some {
+        precipitation = none
+        cloudCover = 0.47999999999999998
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = partlyCloudy
+        humidity = 0.78000000000000003
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        precipitationChance = 0
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 280
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 34.43
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 16.84
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 21.210000000000001
+        }
+      }
+      restOfDayForecast = nil
+    }
+    [9] = {
+      date = 2024-04-07 07:00:00 UTC
+      condition = partlyCloudy
+      symbolName = "cloud.sun"
+      highTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 12.529999999999999
+      }
+      highTemperatureDate = nil
+      lowTemperature = {
+        unit = 0x00000001ee5fcd60 {...}
+        value = 7.6299999999999998
+      }
+      lowTemperatureDate = nil
+      humidity = 0
+      humidityMax = 0
+      humidityMin = 0
+      precipitation = none
+      precipitationChance = 0
+      rainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      snowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDayRainfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      wholeDaySnowfallAmount = {
+        unit = 0x00000001ee5fc2d8 {...}
+        value = 0
+      }
+      precipitationAmountByType = 0 key/value pairs {}
+      sun = {
+        astronomicalDawn = 2024-04-07 12:14:25 UTC
+        nauticalDawn = 2024-04-07 12:47:01 UTC
+        civilDawn = 2024-04-07 13:18:31 UTC
+        sunrise = 2024-04-07 13:45:08 UTC
+        solarNoon = 2024-04-07 20:11:36 UTC
+        sunset = 2024-04-08 02:38:36 UTC
+        civilDusk = 2024-04-08 03:05:12 UTC
+        nauticalDusk = 2024-04-08 03:36:57 UTC
+        astronomicalDusk = 2024-04-08 04:09:38 UTC
+        solarMidnight = 2024-04-07 08:11:22 UTC
+      }
+      moon = {
+        phase = waningCrescent
+        moonrise = 2024-04-07 13:13:51 UTC
+        moonset = 2024-04-08 01:44:50 UTC
+      }
+      uvIndex = {
+        value = 3
+        category = moderate
+      }
+      visibilityMax = 0
+      visibilityMin = 0
+      wind = {
+        compassDirection = westNorthwest
+        direction = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 288
+        }
+        speed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 17.219999999999999
+        }
+        gust = some {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 25.91
+        }
+      }
+      windGustSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 26.940000000000001
+      }
+      windSpeedAvg = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 16.57
+      }
+      windSpeedMax = {
+        unit = 0x00000001ee5fccb0 {...}
+        value = 25.18
+      }
+      daytimeForecast = some {
+        precipitation = none
+        cloudCover = 0.67000000000000004
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = mostlyCloudy
+        humidity = 0.65000000000000002
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        precipitationChance = 0
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 288
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 25.91
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 17.219999999999999
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 25.18
+        }
+      }
+      overnightForecast = some {
+        precipitation = none
+        cloudCover = 0.39000000000000001
+        cloudCoverLow = 0
+        cloudCoverMid = 0
+        cloudCoverHigh = 0
+        condition = partlyCloudy
+        humidity = 0.81000000000000005
+        humidityMax = 0
+        humidityMin = 0
+        precipitationAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        precipitationChance = 0
+        snowfallAmount = {
+          unit = 0x00000001ee5fc2d8 {...}
+          value = 0
+        }
+        visibilityMax = 0
+        visibilityMin = 0
+        windDirection = {
+          unit = 0x00000001ee5fad28 {...}
+          value = 280
+        }
+        windGustSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 25.899999999999999
+        }
+        windSpeed = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 10.83
+        }
+        windSpeedMax = {
+          unit = 0x00000001ee5fccb0 {...}
+          value = 20.530000000000001
+        }
+      }
+      restOfDayForecast = nil
+    }
+  }
+  metadata = {
+    date = 2024-03-29 14:37:02 UTC
+    expirationDate = 2024-03-29 15:37:02 UTC
+    latitude = 37.621000000000002
+    longitude = -122.379
+    attribution = some {
+      serviceName = "Apple Weather"
+      legalPageURL = "https://weather-data.apple.com/legal-attribution.html"
+      squareMarkURL = "https://weather-data.apple.com/assets/branding/square-mark.png"
+      combinedMarkDarkURL = "https://weather-data.apple.com/assets/branding/combined-mark-dark.png"
+      combinedMarkLightURL = "https://weather-data.apple.com/assets/branding/combined-mark-light.png"
+      name = "Apple Weather"
+      sourceURL = "https://weather-data.apple.com/legal-attribution.html"
+      logoURL = "https://weather-data.apple.com/assets/branding/combined-mark-dark.png"
+      logo = nil
+    }
+  }
+  minuteSummary = nil
+  minuteConditions = nil
+  minuteSummaries = nil
+}

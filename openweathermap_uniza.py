@@ -21,7 +21,7 @@ def parse_weather_data(data):
     return df
 
 def main():
-    api_key = '7a0fba3f26b1b781607287825f0a125e'
+    api_key = 'API_KEY'
 
     # Latitude and longitude for the location
     lat = 49.201359
