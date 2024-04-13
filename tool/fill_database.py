@@ -6,7 +6,7 @@ def create_database():
     try:
         conn = psycopg2.connect(
             dbname="postgres",
-            user="your_username",
+            user="rmtk",
             password="your_password",
             host="localhost"
         )
@@ -27,7 +27,7 @@ def connect_to_database():
         # Connect to the PostgreSQL database
         conn = psycopg2.connect(
             dbname="bcweather",
-            user="your_username",
+            user="rmtk",
             password="your_password",
             host="localhost"
         )
@@ -76,6 +76,7 @@ def create_table(conn):
         conn.commit()
         print("Table 'Locations' created successfully")
     except psycopg2.Error as e:
+        conn.rollback()
         print(f"Error creating table: {e}")
 
 def fill_table(conn):
@@ -84,19 +85,29 @@ def fill_table(conn):
         with open('../data/stops.csv', newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile, delimiter=';')
 
-            # Insert data into the table
+            # Get existing stops from the database
+            existing_stops = set()
+            with conn.cursor() as cursor:
+                cursor.execute("SELECT stop_id FROM Locations")
+                rows = cursor.fetchall()
+                existing_stops.update(row[0] for row in rows)
+
+            # Insert new stops into the table
             with conn.cursor() as cursor:
                 for row in reader:
-                    cursor.execute(
-                        """
-                        INSERT INTO Locations (stop_id, latitude, longitude, state, region, town, town_part, stop_name)
-                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-                        """,
-                        (int(row['Cislo zastavky']), float(row['Zemepisna sirka'].replace(',', '.')), float(row['Zemepisna dlzka'].replace(',', '.')), row['Stat'], row['Okres'], row['Obec'], row['Cast obce'], row['Nazov zastavky'])
-                    )
+                    stop_id = int(row['Cislo zastavky'])
+                    if stop_id not in existing_stops:
+                        cursor.execute(
+                            """
+                            INSERT INTO Locations (stop_id, latitude, longitude, state, region, town, town_part, stop_name)
+                            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+                            """,
+                            (stop_id, float(row['Zemepisna sirka'].replace(',', '.')), float(row['Zemepisna dlzka'].replace(',', '.')), row['Stat'], row['Okres'], row['Obec'], row['Cast obce'], row['Nazov zastavky'])
+                        )
             conn.commit()
             print("Data inserted into table 'Locations'")
     except (psycopg2.Error, FileNotFoundError) as e:
+        conn.rollback()
         print(f"Error filling table: {e}")
 
 def main():
