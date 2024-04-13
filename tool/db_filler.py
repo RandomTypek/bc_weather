@@ -7,8 +7,8 @@ def create_database():
     try:
         conn = psycopg2.connect(
             dbname="postgres",
-            user="rmtk", #your_username
-            password="fornetti", #your_password
+            user="your_username",
+            password="your_password",
             host="localhost"
         )
         conn.autocommit = True
@@ -28,8 +28,8 @@ def connect_to_database():
         # Connect to the PostgreSQL database
         conn = psycopg2.connect(
             dbname="bcweather",
-            user="rmtk",
-            password="fornetti",
+            user="your_username",
+            password="your_password",
             host="localhost"
         )
         print("Connected to the database")
