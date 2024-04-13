@@ -14,7 +14,7 @@ def call_weather_api(lat, lon, api_key):
         return None
 
 def main():
-    api_key = '2bcf118b0f860b69e1adb49dc0022576'
+    api_key = 'API_KEY'
 
     with open('../data/stops_small.csv', newline='', encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile, delimiter=';')
