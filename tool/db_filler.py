@@ -3,13 +3,33 @@ import psycopg2
 from psycopg2 import sql
 from datetime import datetime
 
+def create_database():
+    try:
+        conn = psycopg2.connect(
+            dbname="postgres",
+            user="rmtk", #your_username
+            password="fornetti", #your_password
+            host="localhost"
+        )
+        conn.autocommit = True
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT 1 FROM pg_database WHERE datname='bcweather'")
+            exists = cursor.fetchone()
+            if not exists:
+                cursor.execute("CREATE DATABASE bcweather")
+                print("Database created successfully")
+            else:
+                print("Database already exists")
+    except psycopg2.Error as e:
+        print(f"Error creating or checking database: {e}")
+
 def connect_to_database():
     try:
         # Connect to the PostgreSQL database
         conn = psycopg2.connect(
-            dbname="your_db_name",
-            user="your_username",
-            password="your_password",
+            dbname="bcweather",
+            user="rmtk",
+            password="fornetti",
             host="localhost"
         )
         print("Connected to the database")
@@ -81,7 +101,11 @@ def fill_table(conn):
         print(f"Error filling table: {e}")
 
 def main():
+
+    create_database()
+    
     conn = connect_to_database()
+    
     if conn is not None:
         if table_exists(conn):
             fill_table(conn)
