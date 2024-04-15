@@ -1,14 +1,23 @@
 import csv
+import json
 import psycopg2
 from datetime import datetime
 
-def create_database():
+def load_config(filename):
+    try:
+        with open(filename, 'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        print(f"Config file '{filename}' not found.")
+        return None
+        
+def create_database(config):
     try:
         conn = psycopg2.connect(
             dbname="postgres",
-            user="rmtk",
-            password="your_password",
-            host="localhost"
+            user=config['user'],
+            password=config['password'],
+            host=config['host']
         )
         conn.autocommit = True
         with conn.cursor() as cursor:
@@ -22,14 +31,14 @@ def create_database():
     except psycopg2.Error as e:
         print(f"Error creating or checking database: {e}")
 
-def connect_to_database():
+def connect_to_database(config):
     try:
         # Connect to the PostgreSQL database
         conn = psycopg2.connect(
-            dbname="bcweather",
-            user="rmtk",
-            password="your_password",
-            host="localhost"
+            dbname=config['dbname'],
+            user=config['user'],
+            password=config['password'],
+            host=config['host']
         )
         print("Connected to the database")
         return conn
@@ -111,10 +120,12 @@ def fill_table(conn):
         print(f"Error filling table: {e}")
 
 def main():
+    config = load_config('config.json')
+    if config is None:
+        return
 
-    create_database()
-    
-    conn = connect_to_database()
+    create_database(config)
+    conn = connect_to_database(config)
     
     if conn is not None:
         if table_exists(conn):

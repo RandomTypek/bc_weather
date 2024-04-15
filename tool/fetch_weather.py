@@ -4,14 +4,22 @@ from datetime import datetime
 import json
 import time
 
-def connect_to_database():
+def load_config(filename):
+    try:
+        with open(filename, 'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        print(f"Config file '{filename}' not found.")
+        return None
+        
+def connect_to_database(config):
     # Connect to the PostgreSQL database
     try:
         conn = psycopg2.connect(
-            dbname="bcweather",
-            user="rmtk",
-            password="your_password",
-            host="localhost"
+            dbname=config['dbname'],
+            user=config['user'],
+            password=config['password'],
+            host=config['host']
         )
         print("Connected to the database")
         return conn
@@ -110,9 +118,13 @@ def call_weather_api(lat, lon, api_key):
         return None
 
 def main():
-    delay = 3600
-    api_key = 'API_KEY'
-    conn = connect_to_database()
+    config = load_config('config.json')
+    if config is None:
+        return
+
+    delay = config.get('delay', 3600)
+    api_key = config.get('api_key')
+    conn = connect_to_database(config)
 
     if conn is not None:
         create_weather_table(conn)

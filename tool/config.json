@@ -1,0 +1,8 @@
+{
+  "api_key": "API_KEY",
+  "dbname": "bcweather",
+  "user": "rmtk",
+  "password": "your_password",
+  "host": "localhost",
+  "delay": 3600
+}
