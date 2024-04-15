@@ -1,0 +1,12 @@
+[Unit]
+Description=Fetch Weather Service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/rmtk/bc_weather/tool/fetch_weather.py
+WorkingDirectory=/home/rmtk/bc_weather/tool/
+
+[Install]
+WantedBy=multi-user.target
