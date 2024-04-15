@@ -82,7 +82,7 @@ def create_table(conn):
 def fill_table(conn):
     try:
         # Open the CSV file
-        with open('../data/stops.csv', newline='', encoding='utf-8') as csvfile:
+        with open('../data/stops_small.csv', newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile, delimiter=';')
 
             # Get existing stops from the database

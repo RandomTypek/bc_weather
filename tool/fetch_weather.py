@@ -2,13 +2,14 @@ import requests
 import psycopg2
 from datetime import datetime
 import json
+import time
 
 def connect_to_database():
     # Connect to the PostgreSQL database
     try:
         conn = psycopg2.connect(
             dbname="bcweather",
-            user="your_username",
+            user="rmtk",
             password="your_password",
             host="localhost"
         )
@@ -109,6 +110,7 @@ def call_weather_api(lat, lon, api_key):
         return None
 
 def main():
+    delay = 3600
     api_key = 'API_KEY'
     conn = connect_to_database()
 
@@ -116,23 +118,26 @@ def main():
         create_weather_table(conn)
 
         try:
-            with conn.cursor() as cursor:
-                cursor.execute("SELECT * FROM Locations")
-                rows = cursor.fetchall()
+            while True:
+                with conn.cursor() as cursor:
+                    cursor.execute("SELECT * FROM Locations")
+                    rows = cursor.fetchall()
 
-                for row in rows:
-                    stop_id, lat, lon, _, _, _, _, stop_name = row
+                    for row in rows:
+                        stop_id, lat, lon, _, _, _, _, stop_name = row
 
-                    if lat == 0 or lon == 0:
-                        print(f"Ignoring row for bus stop {stop_name}: Latitude or longitude is zero.")
-                        continue
+                        if lat == 0 or lon == 0:
+                            print(f"Ignoring row for bus stop {stop_name}: Latitude or longitude is zero.")
+                            continue
 
-                    weather_data = call_weather_api(lat, lon, api_key)
+                        weather_data = call_weather_api(lat, lon, api_key)
 
-                    if weather_data:
-                        insert_weather_data(conn, stop_id, weather_data)
-                    else:
-                        print(f"Failed to fetch weather forecast for bus stop {stop_name}.")
+                        if weather_data:
+                            insert_weather_data(conn, stop_id, weather_data)
+                        else:
+                            print(f"Failed to fetch weather forecast for bus stop {stop_name}.")
+                print(f"Sleeping for {delay}s")            
+                time.sleep(delay)               
         except psycopg2.Error as e:
             print(f"Error executing SQL query: {e}")
         finally:
