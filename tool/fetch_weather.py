@@ -3,6 +3,7 @@ import psycopg2
 from datetime import datetime
 import json
 import time
+import sys
 
 def load_config(filename):
     try:
@@ -10,6 +11,7 @@ def load_config(filename):
             return json.load(file)
     except FileNotFoundError:
         print(f"Config file '{filename}' not found.")
+        sys.stdout.flush()
         return None
         
 def connect_to_database(config):
@@ -25,6 +27,7 @@ def connect_to_database(config):
         return conn
     except psycopg2.Error as e:
         print(f"Error connecting to the database: {e}")
+        sys.stdout.flush()
         return None
 
 def create_weather_table(conn):
@@ -64,8 +67,10 @@ def create_weather_table(conn):
             )
         conn.commit()
         print("Table 'WeatherData' created successfully")
+        sys.stdout.flush()
     except psycopg2.Error as e:
         print(f"Error creating table: {e}")
+        sys.stdout.flush()
 
 def insert_weather_data(conn, location_id, weather_data):
     try:
@@ -105,6 +110,7 @@ def insert_weather_data(conn, location_id, weather_data):
         print("Weather data inserted successfully")
     except psycopg2.Error as e:
         print(f"Error inserting weather data: {e}")
+        sys.stdout.flush()
 
 def call_weather_api(lat, lon, api_key):
     url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric"
@@ -115,6 +121,7 @@ def call_weather_api(lat, lon, api_key):
         return data
     except requests.exceptions.RequestException as e:
         print(f"Error fetching data: {e}")
+        sys.stdout.flush()
         return None
 
 def main():
@@ -148,14 +155,17 @@ def main():
                             insert_weather_data(conn, stop_id, weather_data)
                         else:
                             print(f"Failed to fetch weather forecast for bus stop {stop_name}.")
+                            sys.stdout.flush()
                 print(f"Sleeping for {delay}s")            
                 time.sleep(delay)               
         except psycopg2.Error as e:
             print(f"Error executing SQL query: {e}")
+            sys.stdout.flush()
         finally:
             conn.close()
     else:
         print("Unable to connect to the database")
+        sys.stdout.flush()
 
 if __name__ == "__main__":
     main()
