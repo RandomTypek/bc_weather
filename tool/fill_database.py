@@ -87,10 +87,10 @@ def create_table(conn):
         conn.rollback()
         print(f"Error creating table: {e}")
 
-def fill_table(conn):
+def fill_table(conn, config):
     try:
         # Open the CSV file
-        with open('../data/stops_small.csv', newline='', encoding='utf-8') as csvfile:
+        with open(config['location_data'], newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile, delimiter=';')
 
             # Get existing stops from the database
@@ -128,10 +128,10 @@ def main():
     
     if conn is not None:
         if table_exists(conn):
-            fill_table(conn)
+            fill_table(conn, config)
         else:
             create_table(conn)
-            fill_table(conn)
+            fill_table(conn, config)
         conn.close()
     else:
         print("Unable to connect to the database")
