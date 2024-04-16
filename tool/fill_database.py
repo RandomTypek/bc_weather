@@ -1,7 +1,6 @@
 import csv
 import json
 import psycopg2
-from datetime import datetime
 
 def load_config(filename):
     try:
@@ -139,3 +138,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
