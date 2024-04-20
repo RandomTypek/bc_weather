@@ -11,6 +11,21 @@ def call_weather_api(lat, lon, api_key):
     except requests.exceptions.RequestException as e:
         print(f"Error fetching data: {e}")
         return None
+    except requests.exceptions.HTTPError as e:
+        print(f"HTTP error occurred: {e}")
+        return None
+    except requests.exceptions.ConnectionError as e:
+        print(f"Error connecting to the server: {e}")
+        return None
+    except requests.exceptions.Timeout as e:
+        print(f"Timeout error occurred: {e}")
+        return None
+    except requests.exceptions.TooManyRedirects as e:
+        print(f"Too many redirects: {e}")
+        return None
+    except ValueError as e:
+        print(f"Error decoding JSON: {e}")
+        return None
 
 def main():
     api_key = 'API_KEY'
