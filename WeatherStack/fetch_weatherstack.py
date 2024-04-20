@@ -76,33 +76,49 @@ def parse_weather_data(data):
         return None
 
 def main():
-
     config = load_config('config.json')
     if config is None:
         return
-    
-    params = {
-        'access_key': config.get('api_key'),
-        'query': '49.201359, 18.754791',
-        'units': 'm'
-    }
-    
-    # Call the API
-    weather_data = call_weather_api(params)
+        
+     # Connect to the database
+    connection = connect_to_database(config)
+    if connection is None:
+        print("Failed to connect to database.")
+        return
 
-    # Parse the response and save it to DataFrame
-    df = parse_weather_data(weather_data)
+    # Fetch all stops from the database
+    location_data = fetch_location_data(connection)
+    if location_data is None:
+        print("Failed to fetch location data from the database.")
+        return
 
-    if df is not None:
-        current_time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
-        print(f"Weather data fetched successfully at {current_time}.")
-        for index, row in df.iterrows():
-            print(f"Index: {index}")
-            for col in df.columns:
-                print(f"{col}: {row[col]}")
-            print()
-    else:
-        print("Failed to fetch weather data.")
+    for latitude, longitude in location_data:
+        if latitude == 0 or longitude == 0:
+            print(f"Ignoring row: Latitude or longitude is zero.")
+            continue
+            
+        params = {
+            'access_key': config.get('api_key'),
+            'query': f'{latitude},{longitude}',
+            'units': 'm'
+        }
+    
+        # Call the API
+        weather_data = call_weather_api(params)
+
+        # Parse the response and save it to DataFrame
+        df = parse_weather_data(weather_data)
+
+        if df is not None:
+            current_time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+            print(f"Weather data fetched successfully at {current_time}.")
+            for index, row in df.iterrows():
+                print(f"Index: {index}")
+                for col in df.columns:
+                    print(f"{col}: {row[col]}")
+                print()
+        else:
+            print(f"Failed to fetch weather data.")
 
 if __name__ == "__main__":
     main()
