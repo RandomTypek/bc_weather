@@ -1,0 +1,9 @@
+{
+  "_comment": "Change CLIENT_ID and CLIENT_SECRET in request_url below",
+  "request_url": "https://api.aerisapi.com/conditions/49.201359,18.754791?format=json&plimit=1&filter=1min&client_id=CLIENT_ID&client_secret=CLIENT_SECRET",
+  "location_data": "../data/stops_small.csv",
+  "dbname": "bcweather",
+  "user": "rmtk",
+  "password": "your_password",
+  "host": "localhost"
+}

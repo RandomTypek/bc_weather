@@ -5,8 +5,11 @@ import pandas as pd
 from datetime import datetime
 
 try:
+     with open('config.json') as config_file:
+        config = json.load(config_file)
+        
     # Call the API
-    request = urllib.request.urlopen('https://api.aerisapi.com/conditions/49.201359,18.754791?format=json&plimit=1&filter=1min&client_id=CLIENT_ID&client_secret=CLIENT_SECRET')
+    request = urllib.request.urlopen(config['request_url'])
     response = request.read()
     
     # Check if response is empty
