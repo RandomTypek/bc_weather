@@ -28,6 +28,17 @@ def connect_to_database(config):
         print(f"Error connecting to the database: {e}")
         sys.stdout.flush()
         return None
+        
+def fetch_location_data(connection):
+    try:
+        cursor = connection.cursor()
+        cursor.execute("SELECT latitude, longitude FROM Locations")
+        location_data = cursor.fetchall()
+        cursor.close()
+        return location_data
+    except (Exception, psycopg2.Error) as error:
+        print("Error while fetching data from PostgreSQL", error)
+        return None
 
 def call_weather_api(params):
     try:

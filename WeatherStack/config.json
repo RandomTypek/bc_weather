@@ -1,5 +1,5 @@
 {
-  "api_key": "fe335ff9061d8ac8498fef84b86e4a6b",
+  "api_key": "API_KEY",
   "location_data": "../data/stops_small.csv",
   "dbname": "bcweather",
   "user": "rmtk",
