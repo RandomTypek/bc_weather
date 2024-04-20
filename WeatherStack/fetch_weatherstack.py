@@ -40,9 +40,9 @@ def fetch_location_data(connection):
         print("Error while fetching data from PostgreSQL", error)
         return None
 
-def call_weather_api(params):
+def call_weather_api(params, config):
     try:
-        api_result = requests.get('http://api.weatherstack.com/current', params)
+        api_result = requests.get(config['request_url'], params)
         api_result.raise_for_status()  # Raise an exception for 4xx and 5xx status codes
         api_response = api_result.json()
         return api_response
@@ -104,7 +104,7 @@ def main():
         }
     
         # Call the API
-        weather_data = call_weather_api(params)
+        weather_data = call_weather_api(params, config)
 
         # Parse the response and save it to DataFrame
         df = parse_weather_data(weather_data)
