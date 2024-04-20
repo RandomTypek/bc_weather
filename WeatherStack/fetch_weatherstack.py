@@ -1,6 +1,33 @@
 import requests
 import pandas as pd
 from datetime import datetime
+import psycopg2
+import json
+
+def load_config(filename):
+    try:
+        with open(filename, 'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        print(f"Config file '{filename}' not found.")
+        sys.stdout.flush()
+        return None
+        
+def connect_to_database(config):
+    # Connect to the PostgreSQL database
+    try:
+        conn = psycopg2.connect(
+            dbname=config['dbname'],
+            user=config['user'],
+            password=config['password'],
+            host=config['host']
+        )
+        print("Connected to the database")
+        return conn
+    except psycopg2.Error as e:
+        print(f"Error connecting to the database: {e}")
+        sys.stdout.flush()
+        return None
 
 def call_weather_api(params):
     try:
@@ -38,8 +65,13 @@ def parse_weather_data(data):
         return None
 
 def main():
+
+    config = load_config('config.json')
+    if config is None:
+        return
+    
     params = {
-        'access_key': 'API_KEY',
+        'access_key': config.get('api_key'),
         'query': '49.201359, 18.754791',
         'units': 'm'
     }
