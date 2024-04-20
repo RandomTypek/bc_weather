@@ -5,7 +5,7 @@ import pandas as pd
 from datetime import datetime
 
 try:
-     with open('config.json') as config_file:
+    with open('config.json') as config_file:
         config = json.load(config_file)
         
     # Call the API
