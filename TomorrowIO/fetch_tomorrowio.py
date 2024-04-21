@@ -60,11 +60,18 @@ if __name__ == "__main__":
             password=config['password'],
             host=config['host']
         )
+            
         cursor = connection.cursor()
         cursor.execute("SELECT latitude, longitude FROM Locations")
         locations = cursor.fetchall()
         for location in locations:
             latitude, longitude = location
+            
+            # Ignore rows with zero latitude or longitude
+            if latitude == 0 or longitude == 0:
+                print(f"Ignoring row: Latitude or longitude is zero.")
+                continue
+                
             forecast_data = get_weather_forecast(latitude, longitude, config)
             display_forecast(forecast_data)
     except psycopg2.Error as e:
