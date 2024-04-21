@@ -11,7 +11,6 @@ try:
         
     client_id = config['client_id']
     client_secret = config['client_secret']
-    location_data = config['location_data']
     dbname = config['dbname']
     user = config['user']
     password = config['password']
@@ -19,27 +18,35 @@ try:
     
     # Connect to the PostgreSQL database
     conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host)
-    
     cursor = conn.cursor()
-
     cursor.execute("SELECT latitude, longitude FROM Locations")
     rows = cursor.fetchall()
     
-    # Call the API
-    request = urllib.request.urlopen(f'https://api.aerisapi.com/conditions/49.201359,18.754791?format=json&plimit=1&filter=1min&client_id={client_id}&client_secret={client_secret}')
-    response = request.read()
-    
-    # Check if response is empty
-    if response:
-        current_time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
-        print(f"Weather data fetched successfully at {current_time}.")
-        data = json.loads(response)
-        request.close()
-        pretty_json = json.dumps(data, indent=4)
-        print(pretty_json)
-    else:
-        print("Error: Empty response from the API")
+    for row in rows:
+        latitude, longitude = row
         
+        # Ignore rows with zero latitude or longitude
+        if latitude == 0 or longitude == 0:
+            print(f"Ignoring row: Latitude or longitude is zero.")
+            continue
+            
+        request = urllib.request.urlopen(f'https://api.aerisapi.com/conditions/{latitude},{longitude}?format=json&plimit=1&filter=1min&client_id={client_id}&client_secret={client_secret}')
+        response = request.read()
+
+        # Check if response is empty
+        if response:
+            current_time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+            print(f"Weather data fetched successfully at {current_time} for latitude {latitude} and longitude {longitude}.")
+            data = json.loads(response)
+            request.close()
+            pretty_json = json.dumps(data, indent=4)
+            print(pretty_json)
+        else:
+            print(f"Error: Empty response from the API for latitude {latitude} and longitude {longitude}")
+
+    # Close cursor and connection
+    cursor.close()
+    conn.close()
 except psycopg2.Error as e:
     print(f"PostgreSQL Error: {e}")
 except psycopg2.OperationalError as e:

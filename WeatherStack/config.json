@@ -1,7 +1,6 @@
 {
   "request_url": "http://api.weatherstack.com/current",
   "api_key": "426c435c60f00a8730b54d2ee81ba177",
-  "location_data": "../data/stops_small.csv",
   "dbname": "bcweather",
   "user": "rmtk",
   "password": "your_password",
