@@ -1,6 +1,43 @@
+import json
+import psycopg2
 import requests
 from datetime import datetime
 
+def load_config(filename):
+    try:
+        with open(filename, 'r') as f:
+            config = json.load(f)
+            return config
+    except FileNotFoundError:
+        print(f"Config file '{filename}' not found.")
+        return None
+    except json.JSONDecodeError:
+        print(f"Error decoding JSON in '{filename}'.")
+        return None
+        
+def connect_to_database(config):
+    try:
+        connection = psycopg2.connect(
+            dbname=config['dbname'],
+            user=config['user'],
+            password=config['password'],
+            host=config['host']
+        )
+        return connection
+    except psycopg2.Error as e:
+        print(f"Unable to connect to the database: {e}")
+        return None
+        
+def get_locations_from_database(connection):
+    try:
+        cursor = connection.cursor()
+        cursor.execute("SELECT latitude, longitude FROM Locations")
+        locations = cursor.fetchall()
+        return locations
+    except psycopg2.Error as e:
+        print(f"Error fetching locations from the database: {e}")
+        return None        
+        
 def get_weather_data(api_key, latitude, longitude):
     try:
         url = f"https://api.weatherbit.io/v2.0/current?lat={latitude}&lon={longitude}&key={api_key}"
@@ -42,13 +79,30 @@ def display_weather_data(weather_data):
         print("No weather data available.")
 
 def main():
-    # Replace 'API_KEY' with your actual API key from Weatherbit.io
-    api_key = 'API_KEY'
-    latitude = 49.201359
-    longitude = 18.754791
-
-    weather_data = get_weather_data(api_key, latitude, longitude)
-    display_weather_data(weather_data)
+    config = load_config('config.json')
+        
+    if config:
+        api_key = config['api_key']
+        
+        connection = connect_to_database(config)
+        if connection:
+            locations = get_locations_from_database(connection)
+            if locations:
+                for location in locations:
+                    latitude, longitude = location
+                     # Ignore rows with zero latitude or longitude
+                    if latitude == 0 or longitude == 0:
+                        print(f"Ignoring row: Latitude or longitude is zero.")
+                        continue
+                    weather_data = get_weather_data(api_key, latitude, longitude)
+                    display_weather_data(weather_data)
+            else:
+                print("No locations found in the database.")
+                connection.close()
+        else:
+            print("Unable to fetch weather data.")
+    else:
+        print("Configuration loading failed.")
 
 if __name__ == "__main__":
     main()
