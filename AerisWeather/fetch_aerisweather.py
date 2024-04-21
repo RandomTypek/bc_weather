@@ -2,6 +2,7 @@ import urllib
 import json
 import requests
 import pandas as pd
+import psycopg2
 from datetime import datetime
 
 try:
@@ -10,6 +11,14 @@ try:
         
     client_id = config['client_id']
     client_secret = config['client_secret']
+    location_data = config['location_data']
+    dbname = config['dbname']
+    user = config['user']
+    password = config['password']
+    host = config['host']
+    
+    # Connect to the PostgreSQL database
+    conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host)
     
     # Call the API
     request = urllib.request.urlopen(f'https://api.aerisapi.com/conditions/49.201359,18.754791?format=json&plimit=1&filter=1min&client_id={client_id}&client_secret={client_secret}')
@@ -25,7 +34,11 @@ try:
         print(pretty_json)
     else:
         print("Error: Empty response from the API")
-
+        
+except psycopg2.Error as e:
+    print(f"PostgreSQL Error: {e}")
+except psycopg2.OperationalError as e:
+    print(f"Error connecting to the PostgreSQL database: {e}")
 except urllib.error.HTTPError as e:
     print(f"HTTP Error: {e.code} - {e.reason}")
 except urllib.error.URLError as e:
