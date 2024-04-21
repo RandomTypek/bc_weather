@@ -1,13 +1,11 @@
 import requests
 import json
+import psycopg2
 from datetime import datetime
 
-def get_weather_forecast(location):
-    with open('config.json') as config_file:
-        config = json.load(config_file)
-
+def get_weather_forecast(latitude, longitude, config):
     api_key = config['api_key']
-    url = f'https://api.tomorrow.io/v4/weather/realtime?location={location}&apikey={api_key}'
+    url = f'https://api.tomorrow.io/v4/weather/realtime?location={latitude},{longitude}&apikey={api_key}'
     
     try:
         response = requests.get(url)
@@ -52,6 +50,26 @@ def display_forecast(response):
         print("Failed to fetch weather forecast.")
 
 if __name__ == "__main__":
-    location = "49.201359, 18.754791"
-    forecast_data = get_weather_forecast(location)
-    display_forecast(forecast_data)
+    try:
+        with open('config.json') as config_file:
+            config = json.load(config_file)
+        
+        connection = psycopg2.connect(
+            dbname=config['dbname'],
+            user=config['user'],
+            password=config['password'],
+            host=config['host']
+        )
+        cursor = connection.cursor()
+        cursor.execute("SELECT latitude, longitude FROM Locations")
+        locations = cursor.fetchall()
+        for location in locations:
+            latitude, longitude = location
+            forecast_data = get_weather_forecast(latitude, longitude, config)
+            display_forecast(forecast_data)
+    except psycopg2.Error as e:
+        print(f"Error connecting to PostgreSQL: {e}")
+    finally:
+        if connection:
+            cursor.close()
+            connection.close()
