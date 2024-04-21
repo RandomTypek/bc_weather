@@ -1,8 +1,12 @@
 import requests
+import json
 from datetime import datetime
 
 def get_weather_forecast(location):
-    api_key = 'API_KEY'  # Replace 'YOUR_API_KEY' with your actual API key
+    with open('config.json') as config_file:
+        config = json.load(config_file)
+
+    api_key = config['api_key']
     url = f'https://api.tomorrow.io/v4/weather/realtime?location={location}&apikey={api_key}'
     
     try:
