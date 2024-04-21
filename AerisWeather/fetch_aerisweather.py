@@ -8,8 +8,11 @@ try:
     with open('config.json') as config_file:
         config = json.load(config_file)
         
+    client_id = config['client_id']
+    client_secret = config['client_secret']
+    
     # Call the API
-    request = urllib.request.urlopen(config['request_url'])
+    request = urllib.request.urlopen(f'https://api.aerisapi.com/conditions/49.201359,18.754791?format=json&plimit=1&filter=1min&client_id={client_id}&client_secret={client_secret}')
     response = request.read()
     
     # Check if response is empty
