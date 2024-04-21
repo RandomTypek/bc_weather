@@ -20,6 +20,11 @@ try:
     # Connect to the PostgreSQL database
     conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host)
     
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT latitude, longitude FROM Locations")
+    rows = cursor.fetchall()
+    
     # Call the API
     request = urllib.request.urlopen(f'https://api.aerisapi.com/conditions/49.201359,18.754791?format=json&plimit=1&filter=1min&client_id={client_id}&client_secret={client_secret}')
     response = request.read()
