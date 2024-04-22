@@ -28,12 +28,13 @@ try:
         password=password,
         host=host
     )
-    cursor = conn.cursor()
+    cursor = conn.cursor() # Creating a cursor object for database interaction
     
-     # Fetch latitude and longitude from the database
+    # Fetch latitude and longitude from the database
     cursor.execute("SELECT latitude, longitude, town, stop_name FROM Locations")
     rows = cursor.fetchall()
     
+    # Iterate over each row in the database
     for row in rows:
         latitude, longitude, town, stop_name  = row
         
@@ -54,7 +55,7 @@ try:
                       "snowfall_sum", "precipitation_hours", "wind_speed_10m_max", "wind_gusts_10m_max",
                       "wind_direction_10m_dominant", "shortwave_radiation_sum", "et0_fao_evapotranspiration"],
             "timezone": "auto"
-        }
+        } # Parameters for the Open-Meteo API request
         responses = openmeteo.weather_api(url, params=params)
 
         # Process first location. Add a for-loop for multiple locations or weather models
@@ -86,7 +87,8 @@ try:
         daily_wind_direction_10m_dominant = daily.Variables(17).ValuesAsNumpy()
         daily_shortwave_radiation_sum = daily.Variables(18).ValuesAsNumpy()
         daily_et0_fao_evapotranspiration = daily.Variables(19).ValuesAsNumpy()
-
+        
+        # Creating a dictionary to hold daily data
         daily_data = {"date": pd.date_range(
             start=pd.to_datetime(daily.Time(), unit="s", utc=True),
             end=pd.to_datetime(daily.TimeEnd(), unit="s", utc=True),
