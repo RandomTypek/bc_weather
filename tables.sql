@@ -13,7 +13,6 @@ CREATE TABLE WeatherData (
     weather_id SERIAL PRIMARY KEY,
     location_id INT REFERENCES Locations(stop_id),
     weather JSONB,
-    base VARCHAR(50),
     main_temp DECIMAL,
     main_feels_like DECIMAL,
     main_temp_min DECIMAL,
