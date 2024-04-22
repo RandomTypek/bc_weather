@@ -4,6 +4,18 @@ from datetime import datetime
 import json
 
 def call_weather_api(lat, lon, api_key):
+    """
+    Function to call the OpenWeatherMap API and fetch weather data for a given latitude and longitude.
+
+    Args:
+        lat (float): Latitude of the location.
+        lon (float): Longitude of the location.
+        api_key (str): API key for accessing the OpenWeatherMap API.
+
+    Returns:
+        dict: Weather data in JSON format.
+    """
+    
     url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric"
     try:
         response = requests.get(url)
@@ -15,6 +27,16 @@ def call_weather_api(lat, lon, api_key):
         return None
 
 def fetch_locations_from_database(db_config):
+    """
+    Function to fetch locations (latitude, longitude) from a PostgreSQL database.
+
+    Args:
+        db_config (dict): Database configuration containing dbname, user, password, and host.
+
+    Returns:
+        list: List of tuples containing latitude and longitude of locations.
+    """
+    
     try:
         conn = psycopg2.connect(
             dbname=db_config["dbname"],
@@ -34,6 +56,13 @@ def fetch_locations_from_database(db_config):
             conn.close()
 
 def load_config():
+    """
+    Function to load configuration settings from a JSON file.
+
+    Returns:
+        dict: Configuration settings.
+    """
+    
     try:
         with open('config.json') as f:
             config = json.load(f)
@@ -46,6 +75,7 @@ def load_config():
         return None
 
 def main():
+    # Load configuration from file
     config = load_config()
 
     if config:
@@ -67,10 +97,13 @@ def main():
                 if lat == 0 or lon == 0:
                     print(f"Ignoring row: Latitude or longitude is zero.")
                     continue
+                    
+                # Call weather API to fetch weather data for the location
                 weather_data = call_weather_api(lat, lon, api_key)
                 if weather_data:
                     current_time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
                     print(f"Weather data fetched successfully at {current_time} for location ({lat}, {lon}).")
+                    # Print weather data
                     for key, value in weather_data.items():
                         if isinstance(value, dict):
                             for sub_key, sub_value in value.items():
