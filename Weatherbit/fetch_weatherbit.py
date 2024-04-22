@@ -4,6 +4,16 @@ import requests
 from datetime import datetime
 
 def load_config(filename):
+    """
+    Load configuration settings from a JSON file.
+
+    Args:
+        filename (str): The path to the JSON configuration file.
+
+    Returns:
+        dict: Configuration settings.
+    """
+    
     try:
         with open(filename, 'r') as f:
             config = json.load(f)
@@ -16,6 +26,16 @@ def load_config(filename):
         return None
         
 def connect_to_database(config):
+    """
+    Connect to the PostgreSQL database.
+
+    Args:
+        config (dict): Database connection parameters.
+
+    Returns:
+        psycopg2.connection: Connection object if successful, None otherwise.
+    """
+    
     try:
         connection = psycopg2.connect(
             dbname=config['dbname'],
@@ -29,6 +49,16 @@ def connect_to_database(config):
         return None
         
 def get_locations_from_database(connection):
+    """
+    Fetch locations (latitude, longitude) from the database.
+
+    Args:
+        connection (psycopg2.connection): Connection object to the database.
+
+    Returns:
+        list: List of tuples containing latitude and longitude of locations.
+    """
+    
     try:
         cursor = connection.cursor()
         cursor.execute("SELECT latitude, longitude FROM Locations")
@@ -39,6 +69,18 @@ def get_locations_from_database(connection):
         return None        
         
 def get_weather_data(api_key, latitude, longitude):
+    """
+    Get weather data from the Weatherbit API for a given latitude and longitude.
+
+    Args:
+        api_key (str): Weatherbit API key.
+        latitude (float): Latitude of the location.
+        longitude (float): Longitude of the location.
+
+    Returns:
+        dict: Weather data in JSON format.
+    """
+    
     try:
         url = f"https://api.weatherbit.io/v2.0/current?lat={latitude}&lon={longitude}&key={api_key}"
         response = requests.get(url)
@@ -70,6 +112,13 @@ def get_weather_data(api_key, latitude, longitude):
         return None
 
 def display_weather_data(weather_data):
+    """
+    Display weather data.
+
+    Args:
+        weather_data (dict): Weather data in JSON format.
+    """
+    
     if weather_data and 'data' in weather_data and len(weather_data['data']) > 0:
         current_time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
         print(f"Weather data fetched successfully at {current_time}.")
