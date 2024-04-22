@@ -1,0 +1,6 @@
+{
+  "dbname": "bcweather",
+  "user": "rmtk",
+  "password": "your_password",
+  "host": "localhost"
+}
