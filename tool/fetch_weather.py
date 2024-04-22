@@ -40,7 +40,6 @@ def create_weather_table(conn):
                     weather_id SERIAL PRIMARY KEY,
                     location_id INT REFERENCES Locations(stop_id),
                     weather JSONB,
-                    base VARCHAR(50),
                     main_temp DECIMAL,
                     main_feels_like DECIMAL,
                     main_temp_min DECIMAL,
@@ -78,19 +77,19 @@ def insert_weather_data(conn, location_id, weather_data):
             cursor.execute(
                 """
                 INSERT INTO WeatherData (
-                    location_id, weather, base, main_temp, main_feels_like,
+                    location_id, weather, main_temp, main_feels_like,
                     main_temp_min, main_temp_max, main_pressure, main_humidity,
                     main_sea_level, main_grnd_level, visibility, wind_speed,
                     wind_deg, wind_gust, clouds_all, rain_1h, rain_3h,
                     snow_1h, snow_3h, dt, sys_sunrise, sys_sunset, timezone
                 )
                 VALUES (
-                    %s, %s::jsonb, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
+                    %s, %s::jsonb, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
                     %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
                 )
                 """,
                 (
-                    location_id, json.dumps(weather_data.get('weather')), weather_data.get('base'),
+                    location_id, json.dumps(weather_data.get('weather')),
                     weather_data.get('main', {}).get('temp'), weather_data.get('main', {}).get('feels_like'),
                     weather_data.get('main', {}).get('temp_min'), weather_data.get('main', {}).get('temp_max'),
                     weather_data.get('main', {}).get('pressure'), weather_data.get('main', {}).get('humidity'),
