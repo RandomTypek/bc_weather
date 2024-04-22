@@ -3,6 +3,16 @@ import json
 import psycopg2
 
 def load_config(filename):
+    """
+    Load configuration settings from a JSON file.
+
+    Args:
+        filename (str): The path to the JSON configuration file.
+
+    Returns:
+        dict: Configuration settings.
+    """
+    
     try:
         with open(filename, 'r') as file:
             return json.load(file)
@@ -11,6 +21,13 @@ def load_config(filename):
         return None
         
 def create_database(config):
+    """
+    Create the PostgreSQL database if it doesn't exist.
+
+    Args:
+        config (dict): Database connection parameters.
+    """
+    
     try:
         conn = psycopg2.connect(
             dbname="postgres",
@@ -20,6 +37,7 @@ def create_database(config):
         )
         conn.autocommit = True
         with conn.cursor() as cursor:
+            # Check if the database exists
             cursor.execute("SELECT 1 FROM pg_database WHERE datname='bcweather'")
             exists = cursor.fetchone()
             if not exists:
@@ -31,6 +49,16 @@ def create_database(config):
         print(f"Error creating or checking database: {e}")
 
 def connect_to_database(config):
+    """
+    Connect to the PostgreSQL database.
+
+    Args:
+        config (dict): Database connection parameters.
+
+    Returns:
+        psycopg2.connection: Connection object if successful, None otherwise.
+    """
+    
     try:
         # Connect to the PostgreSQL database
         conn = psycopg2.connect(
@@ -46,6 +74,16 @@ def connect_to_database(config):
         return None
 
 def table_exists(conn):
+    """
+    Check if the 'Locations' table exists in the database.
+
+    Args:
+        conn (psycopg2.connection): Connection object to the PostgreSQL database.
+
+    Returns:
+        bool: True if the table exists, False otherwise.
+    """
+    
     try:
         # Check if the table exists
         with conn.cursor() as cursor:
@@ -64,6 +102,13 @@ def table_exists(conn):
         return False
 
 def create_table(conn):
+    """
+    Create the 'Locations' table in the database.
+
+    Args:
+        conn (psycopg2.connection): Connection object to the PostgreSQL database.
+    """
+    
     try:
         # Create the table
         with conn.cursor() as cursor:
@@ -88,6 +133,14 @@ def create_table(conn):
         print(f"Error creating table: {e}")
 
 def fill_table(conn, config):
+    """
+    Fill the 'Locations' table with data from a CSV file.
+
+    Args:
+        conn (psycopg2.connection): Connection object to the PostgreSQL database.
+        config (dict): Configuration settings.
+    """
+    
     try:
         # Open the CSV file
         with open(config['location_data'], newline='', encoding='utf-8') as csvfile:

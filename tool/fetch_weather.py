@@ -6,6 +6,16 @@ import time
 import sys
 
 def load_config(filename):
+    """
+    Load configuration settings from a JSON file.
+
+    Args:
+        filename (str): The path to the JSON configuration file.
+
+    Returns:
+        dict: Configuration settings.
+    """
+    
     try:
         with open(filename, 'r') as file:
             return json.load(file)
@@ -15,6 +25,16 @@ def load_config(filename):
         return None
         
 def connect_to_database(config):
+    """
+    Connect to the PostgreSQL database.
+
+    Args:
+        config (dict): Database connection parameters.
+
+    Returns:
+        psycopg2.connection: Connection object if successful, None otherwise.
+    """
+    
     # Connect to the PostgreSQL database
     try:
         conn = psycopg2.connect(
@@ -31,6 +51,13 @@ def connect_to_database(config):
         return None
 
 def create_weather_table(conn):
+    """
+    Create the 'WeatherData' table in the database if it doesn't exist.
+
+    Args:
+        conn (psycopg2.connection): Connection object to the PostgreSQL database.
+    """
+    
     try:
         # Create the table
         with conn.cursor() as cursor:
@@ -72,6 +99,15 @@ def create_weather_table(conn):
         sys.stdout.flush()
 
 def insert_weather_data(conn, location_id, weather_data):
+    """
+    Insert weather data into the 'WeatherData' table.
+
+    Args:
+        conn (psycopg2.connection): Connection object to the PostgreSQL database.
+        location_id (int): ID of the location.
+        weather_data (dict): Weather data to be inserted.
+    """
+    
     try:
         with conn.cursor() as cursor:
             cursor.execute(
@@ -112,6 +148,18 @@ def insert_weather_data(conn, location_id, weather_data):
         sys.stdout.flush()
 
 def call_weather_api(lat, lon, api_key):
+    """
+    Call the OpenWeatherMap API to fetch weather data.
+
+    Args:
+        lat (float): Latitude of the location.
+        lon (float): Longitude of the location.
+        api_key (str): API key for accessing the OpenWeatherMap API.
+
+    Returns:
+        dict: Weather data in JSON format.
+    """
+    
     url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric"
     try:
         response = requests.get(url)
@@ -138,7 +186,7 @@ def main():
         try:
             while True:
                 with conn.cursor() as cursor:
-                    cursor.execute("SELECT * FROM Locations")
+                    cursor.execute("SELECT * FROM Locations") # Fetch all locations from the database
                     rows = cursor.fetchall()
 
                     for row in rows:
