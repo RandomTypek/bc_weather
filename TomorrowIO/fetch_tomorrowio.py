@@ -4,6 +4,18 @@ import psycopg2
 from datetime import datetime
 
 def get_weather_forecast(latitude, longitude, config):
+    """
+    Function to fetch weather forecast data from Tomorrow.io API.
+
+    Args:
+        latitude (float): Latitude of the location.
+        longitude (float): Longitude of the location.
+        config (dict): Configuration containing API key.
+
+    Returns:
+        dict: Weather forecast data in JSON format.
+    """
+    
     api_key = config['api_key']
     url = f'https://api.tomorrow.io/v4/weather/realtime?location={latitude},{longitude}&apikey={api_key}'
     
@@ -37,6 +49,13 @@ def get_weather_forecast(latitude, longitude, config):
         return None
 
 def display_forecast(response):
+    """
+    Function to display weather forecast data.
+
+    Args:
+        response (dict): Weather forecast data in JSON format.
+    """
+    
     if response and 'data' in response:
         current_time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
         print(f"Weather data fetched successfully at {current_time}.")
@@ -52,14 +71,14 @@ def display_forecast(response):
 if __name__ == "__main__":
     try:
         with open('config.json') as config_file:
-            config = json.load(config_file)
+            config = json.load(config_file) # Loading configuration from JSON file
         
         connection = psycopg2.connect(
             dbname=config['dbname'],
             user=config['user'],
             password=config['password'],
             host=config['host']
-        )
+        ) # Establishing connection to PostgreSQL database
             
         cursor = connection.cursor()
         cursor.execute("SELECT latitude, longitude FROM Locations")
