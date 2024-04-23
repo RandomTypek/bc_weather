@@ -1,6 +1,7 @@
 import csv
 import json
 import psycopg2
+import requests
 
 def load_config(filename):
     """
@@ -183,7 +184,7 @@ def fill_table(conn, config):
                         latitude = float(row['Zemepisna sirka'].replace(',', '.'))
                         longitude = float(row['Zemepisna dlzka'].replace(',', '.'))
                         if latitude == 0.0 and longitude == 0.0:  # If coordinates are missing
-                            place_name = row['Obec'] + ", " + row['Nazov zastavky'].replace(',', '.'))
+                            place_name = row['Obec'] + ", " + row['Nazov zastavky'].replace(',', '.')
                             latitude, longitude = get_coordinates(place_name)
                         cursor.execute(
                             """
