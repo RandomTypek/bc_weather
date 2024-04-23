@@ -131,6 +131,28 @@ def create_table(conn):
     except psycopg2.Error as e:
         conn.rollback()
         print(f"Error creating table: {e}")
+        
+def get_coordinates(place_name):
+    """
+    Get coordinates (latitude, longitude) for a given place name using OpenStreetMap API.
+
+    Args:
+        place_name (str): The name of the place to search for.
+
+    Returns:
+        tuple: A tuple containing latitude and longitude, or (0, 0) if not found.
+    """
+    try:
+        url = f"https://nominatim.openstreetmap.org/search?q={place_name}&format=json"
+        response = requests.get(url)
+        if response.status_code == 200:
+            data = response.json()
+            if data:
+                print(f"Fetched missing coordinates for '{place_name}'")
+                return float(data[0]['lat']), float(data[0]['lon'])
+    except Exception as e:
+        print(f"Error retrieving coordinates for '{place_name}': {e}")
+    return 0, 0
 
 def fill_table(conn, config):
     """
@@ -158,19 +180,23 @@ def fill_table(conn, config):
                 for row in reader:
                     stop_id = int(row['Cislo zastavky'])
                     if stop_id not in existing_stops:
+                        latitude = float(row['Zemepisna sirka'].replace(',', '.'))
+                        longitude = float(row['Zemepisna dlzka'].replace(',', '.'))
+                        if latitude == 0.0 and longitude == 0.0:  # If coordinates are missing
+                            place_name = row['Obec'] + ", " + row['Nazov zastavky'].replace(',', '.'))
+                            latitude, longitude = get_coordinates(place_name)
                         cursor.execute(
                             """
                             INSERT INTO Locations (stop_id, latitude, longitude, state, region, town, town_part, stop_name)
                             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
                             """,
-                            (stop_id, float(row['Zemepisna sirka'].replace(',', '.')), float(row['Zemepisna dlzka'].replace(',', '.')), row['Stat'], row['Okres'], row['Obec'], row['Cast obce'], row['Nazov zastavky'])
+                            (stop_id, latitude, longitude, row['Stat'], row['Okres'], row['Obec'], row['Cast obce'], row['Nazov zastavky'])
                         )
             conn.commit()
             print("Data inserted into table 'Locations'")
     except (psycopg2.Error, FileNotFoundError) as e:
         conn.rollback()
         print(f"Error filling table: {e}")
-
 def main():
     config = load_config('config.json')
     if config is None:

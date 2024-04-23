@@ -18,7 +18,7 @@ def update_csv(input_file, output_file):
 
     for row in rows:
         if row[1] == '0' and row[2] == '0':  # If lat lon are missing
-            lat, lon = get_coordinates(row[5] + ", " + row[7])
+            lat, lon = get_coordinates(row[5] + ", " + row[7].replace(',', '.'))
             if lat == None: #If precise location cannot be found, skip
                 continue;
             print(f"Fetched missing coordinates for {row[5]}, {row[7]} - {lat}, {lon}")
