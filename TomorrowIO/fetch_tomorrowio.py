@@ -65,6 +65,7 @@ def display_forecast(response):
                     print(f"{sub_key}: {sub_value}")
             else:
                 print(f"{key}: {value}")
+        print()        
     else:
         print("Failed to fetch weather forecast.")
 

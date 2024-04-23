@@ -110,6 +110,7 @@ def main():
                                 print(f"{key}.{sub_key}: {sub_value}")
                         else:
                             print(f"{key}: {value}")
+                    print()        
                 else:
                     print(f"Failed to fetch weather forecast for location ({lat}, {lon}).")
         else:

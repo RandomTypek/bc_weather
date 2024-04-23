@@ -124,6 +124,7 @@ def display_weather_data(weather_data):
         print(f"Weather data fetched successfully at {current_time}.")
         for key, value in weather_data['data'][0].items():
             print(f"{key}: {value}")
+        print()    
     else:
         print("No weather data available.")
 

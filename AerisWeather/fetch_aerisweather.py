@@ -52,6 +52,7 @@ try:
             # Pretty print the JSON data
             pretty_json = json.dumps(data, indent=4)
             print(pretty_json)
+            print()
         else:
             print(f"Error: Empty response from the API for latitude {latitude} and longitude {longitude}")
 

@@ -1,6 +1,6 @@
 {
   "request_url": "http://api.weatherstack.com/current",
-  "api_key": "426c435c60f00a8730b54d2ee81ba177",
+  "api_key": "API_KEY",
   "dbname": "bcweather",
   "user": "rmtk",
   "password": "your_password",
