@@ -1,0 +1,9 @@
+{
+  "api_key": "API_KEY",
+  "location_data": "../../data/updated_bus_stops.csv",
+  "dbname": "bcweather",
+  "user": "rmtk",
+  "password": "your_password",
+  "host": "localhost",
+  "delay": 3600
+}
