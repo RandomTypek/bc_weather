@@ -4,6 +4,8 @@ from datetime import datetime
 import json
 import time
 import sys
+import hopsworks
+import pandas as pd
 
 def load_config(filename):
     """
@@ -178,41 +180,86 @@ def main():
 
     delay = config.get('delay', 3600)
     api_key = config.get('api_key')
-    conn = connect_to_database(config)
+    
+    #login to Hopsworks
+    project = hopsworks.login()
+    
+    #get feature store
+    fs = project.get_feature_store(name='bc_weather_featurestore')
+    
+    #get feature view
+    feature_view = fs.get_feature_view(
+    name='stops_lat_lon',
+    version=1
+    )
+    
+    try:
+        while True:
+            #get data from feature view, save to dataframe
+            df = feature_view.get_batch_data()
+            
+            for index, row in df.iterrows():
+                stop_id = row['cislo_zastavky']
+                lat = row['zemepisna_sirka']
+                lon = row['zemepisna_dlzka']
+                town = row['obec']
+                stop_name = row['nazov_zastavky']
 
-    if conn is not None:
-        create_weather_table(conn)
+                if lat == 0 or lon == 0:
+                    print(f"Ignoring row for bus stop {town}, {stop_name}: Latitude or longitude is zero.")
+                    continue
 
-        try:
-            while True:
-                with conn.cursor() as cursor:
-                    cursor.execute("SELECT * FROM Locations") # Fetch all locations from the database
-                    rows = cursor.fetchall()
+                weather_data = call_weather_api(lat, lon, api_key)
 
-                    for row in rows:
-                        stop_id, lat, lon, _, _, _, _, stop_name = row
+                if weather_data:
+                    # Insert weather data into your process
+                    # insert_weather_data(conn, stop_id, weather_data)
+                    print("Weather data inserted successfully")
+                else:
+                    print(f"Failed to fetch weather forecast for bus stop {town}, {stop_name}.")
+                    sys.stdout.flush()
 
-                        if lat == 0 or lon == 0:
-                            print(f"Ignoring row for bus stop {stop_name}: Latitude or longitude is zero.")
-                            continue
-
-                        weather_data = call_weather_api(lat, lon, api_key)
-
-                        if weather_data:
-                            insert_weather_data(conn, stop_id, weather_data)
-                        else:
-                            print(f"Failed to fetch weather forecast for bus stop {stop_name}.")
-                            sys.stdout.flush()
-                print(f"Sleeping for {delay}s")            
-                time.sleep(delay)               
-        except psycopg2.Error as e:
-            print(f"Error executing SQL query: {e}")
-            sys.stdout.flush()
-        finally:
-            conn.close()
-    else:
-        print("Unable to connect to the database")
+            print(f"Sleeping for {delay}s")            
+            time.sleep(delay)               
+    except Exception as e:
+        print(f"Error: {e}")
         sys.stdout.flush()
+
+    #conn = connect_to_database(config)
+
+    #if conn is not None:
+    #    create_weather_table(conn)
+
+    #    try:
+    #        while True:
+    #            with conn.cursor() as cursor:
+    #                cursor.execute("SELECT * FROM Locations") # Fetch all locations from the database
+    #                rows = cursor.fetchall()
+
+    #                for row in rows:
+    #                    stop_id, lat, lon, _, _, _, _, stop_name = row
+
+    #                    if lat == 0 or lon == 0:
+    #                        print(f"Ignoring row for bus stop {stop_name}: Latitude or longitude is zero.")
+    #                        continue
+
+    #                    weather_data = call_weather_api(lat, lon, api_key)
+
+    #                    if weather_data:
+    #                        insert_weather_data(conn, stop_id, weather_data)
+    #                    else:
+    #                        print(f"Failed to fetch weather forecast for bus stop {stop_name}.")
+    #                        sys.stdout.flush()
+    #            print(f"Sleeping for {delay}s")            
+    #            time.sleep(delay)               
+    #    except psycopg2.Error as e:
+    #        print(f"Error executing SQL query: {e}")
+    #        sys.stdout.flush()
+    #    finally:
+    #        conn.close()
+    #else:
+    #    print("Unable to connect to the database")
+    #    sys.stdout.flush()
 
 if __name__ == "__main__":
     main()
