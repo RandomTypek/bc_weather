@@ -1,11 +1,11 @@
 import requests
-import psycopg2
 from datetime import datetime
 import json
 import time
 import sys
 import hopsworks
 import pandas as pd
+import uuid
 
 def load_config(filename):
     """
@@ -25,130 +25,11 @@ def load_config(filename):
         print(f"Config file '{filename}' not found.")
         sys.stdout.flush()
         return None
-        
-def connect_to_database(config):
-    """
-    Connect to the PostgreSQL database.
-
-    Args:
-        config (dict): Database connection parameters.
-
-    Returns:
-        psycopg2.connection: Connection object if successful, None otherwise.
-    """
-    
-    # Connect to the PostgreSQL database
-    try:
-        conn = psycopg2.connect(
-            dbname=config['dbname'],
-            user=config['user'],
-            password=config['password'],
-            host=config['host']
-        )
-        print("Connected to the database")
-        return conn
-    except psycopg2.Error as e:
-        print(f"Error connecting to the database: {e}")
+    except json.JSONDecodeError as e:
+        print(f"Error decoding JSON from file '{filename}': {e}")
         sys.stdout.flush()
         return None
-
-def create_weather_table(conn):
-    """
-    Create the 'WeatherData' table in the database if it doesn't exist.
-
-    Args:
-        conn (psycopg2.connection): Connection object to the PostgreSQL database.
-    """
-    
-    try:
-        # Create the table
-        with conn.cursor() as cursor:
-            cursor.execute(
-                """
-                CREATE TABLE IF NOT EXISTS WeatherData (
-                    weather_id SERIAL PRIMARY KEY,
-                    location_id INT REFERENCES Locations(stop_id),
-                    weather JSONB,
-                    main_temp DECIMAL,
-                    main_feels_like DECIMAL,
-                    main_temp_min DECIMAL,
-                    main_temp_max DECIMAL,
-                    main_pressure INT,
-                    main_humidity INT,
-                    main_sea_level INT,
-                    main_grnd_level INT,
-                    visibility INT,
-                    wind_speed DECIMAL,
-                    wind_deg INT,
-                    wind_gust DECIMAL,
-                    clouds_all INT,
-                    rain_1h DECIMAL,
-                    rain_3h DECIMAL,
-                    snow_1h DECIMAL,
-                    snow_3h DECIMAL,
-                    dt TIMESTAMP,
-                    sys_sunrise TIMESTAMP,
-                    sys_sunset TIMESTAMP,
-                    timezone INT
-                )
-                """
-            )
-        conn.commit()
-        print("Table 'WeatherData' created successfully")
-        sys.stdout.flush()
-    except psycopg2.Error as e:
-        print(f"Error creating table: {e}")
-        sys.stdout.flush()
-
-def insert_weather_data(conn, location_id, weather_data):
-    """
-    Insert weather data into the 'WeatherData' table.
-
-    Args:
-        conn (psycopg2.connection): Connection object to the PostgreSQL database.
-        location_id (int): ID of the location.
-        weather_data (dict): Weather data to be inserted.
-    """
-    
-    try:
-        with conn.cursor() as cursor:
-            cursor.execute(
-                """
-                INSERT INTO WeatherData (
-                    location_id, weather, main_temp, main_feels_like,
-                    main_temp_min, main_temp_max, main_pressure, main_humidity,
-                    main_sea_level, main_grnd_level, visibility, wind_speed,
-                    wind_deg, wind_gust, clouds_all, rain_1h, rain_3h,
-                    snow_1h, snow_3h, dt, sys_sunrise, sys_sunset, timezone
-                )
-                VALUES (
-                    %s, %s::jsonb, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
-                    %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
-                )
-                """,
-                (
-                    location_id, json.dumps(weather_data.get('weather')),
-                    weather_data.get('main', {}).get('temp'), weather_data.get('main', {}).get('feels_like'),
-                    weather_data.get('main', {}).get('temp_min'), weather_data.get('main', {}).get('temp_max'),
-                    weather_data.get('main', {}).get('pressure'), weather_data.get('main', {}).get('humidity'),
-                    weather_data.get('main', {}).get('sea_level'), weather_data.get('main', {}).get('grnd_level'),
-                    weather_data.get('visibility'), weather_data.get('wind', {}).get('speed'),
-                    weather_data.get('wind', {}).get('deg'), weather_data.get('wind', {}).get('gust'),
-                    weather_data.get('clouds', {}).get('all'), weather_data.get('rain', {}).get('1h'),
-                    weather_data.get('rain', {}).get('3h'), weather_data.get('snow', {}).get('1h'),
-                    weather_data.get('snow', {}).get('3h'),
-                    datetime.fromtimestamp(weather_data.get('dt')),
-                    datetime.fromtimestamp(weather_data.get('sys', {}).get('sunrise')),
-                    datetime.fromtimestamp(weather_data.get('sys', {}).get('sunset')),
-                    weather_data.get('timezone')
-                )
-            )
-        conn.commit()
-        print("Weather data inserted successfully")
-    except psycopg2.Error as e:
-        print(f"Error inserting weather data: {e}")
-        sys.stdout.flush()
-
+        
 def call_weather_api(lat, lon, api_key):
     """
     Call the OpenWeatherMap API to fetch weather data.
@@ -172,6 +53,71 @@ def call_weather_api(lat, lon, api_key):
         print(f"Error fetching data: {e}")
         sys.stdout.flush()
         return None
+    except json.JSONDecodeError as e:
+        print(f"Error decoding JSON response: {e}")
+        sys.stdout.flush()
+        return None
+
+def process_weather_data(stop_data, api_key):
+    """
+    Process weather data for a given bus stop.
+
+    Args:
+        stop_data (dict): Dictionary containing bus stop data.
+        api_key (str): API key for accessing the OpenWeatherMap API.
+
+    Returns:
+        dict: Processed weather data.
+    """
+    lat = stop_data['zemepisna_sirka']
+    lon = stop_data['zemepisna_dlzka']
+    town = stop_data['obec']
+    stop_name = stop_data['nazov_zastavky']
+
+    if lat == 0 or lon == 0:
+        print(f"Ignoring row for bus stop {town}, {stop_name}: Latitude or longitude is zero.")
+        return None
+
+    weather_data = call_weather_api(lat, lon, api_key)
+    if weather_data:
+        try:
+            relevant_data = {
+                'weather_id': str(uuid.uuid4()),  # generate unique uuid
+                'location_id': stop_data['cislo_zastavky'],
+                'weather': weather_data['weather'],
+                'main_temp': weather_data['main']['temp'],
+                'main_feels_like': weather_data['main']['feels_like'],
+                'main_temp_min': weather_data['main']['temp_min'],
+                'main_temp_max': weather_data['main']['temp_max'],
+                'main_pressure': weather_data['main']['pressure'],
+                'main_humidity': weather_data['main']['humidity'],
+                'main_sea_level': weather_data['main'].get('sea_level', 0),
+                'main_grnd_level': weather_data['main'].get('grnd_level', 0),
+                'visibility': weather_data.get('visibility', 0),
+                'wind_speed': weather_data['wind']['speed'],
+                'wind_deg': weather_data['wind']['deg'],
+                'wind_gust': weather_data.get('wind').get('gust', 0),
+                'clouds_all': weather_data['clouds']['all'],
+                'rain_1h': weather_data.get('rain', {}).get('1h', 0),
+                'rain_3h': weather_data.get('rain', {}).get('3h', 0),
+                'snow_1h': weather_data.get('snow', {}).get('1h', 0),
+                'snow_3h': weather_data.get('snow', {}).get('3h', 0),
+                'dt': datetime.fromtimestamp(weather_data['dt']),
+                'timestamp': datetime.now(),
+                'sys_sunrise': datetime.fromtimestamp(weather_data['sys']['sunrise']),
+                'sys_sunset': datetime.fromtimestamp(weather_data['sys']['sunset']),
+                'timezone': weather_data['timezone']
+            }
+            print(f"Weather data for {town}, {stop_name} fetched successfully.")
+            return relevant_data
+        except KeyError as e:
+            print(f"KeyError: {e}")
+            sys.stdout.flush()
+            return None
+    else:
+        print(f"Failed to fetch weather forecast for bus stop {town}, {stop_name}.")
+        sys.stdout.flush()
+        return None
 
 def main():
     config = load_config('config.json')
@@ -181,85 +127,58 @@ def main():
     delay = config.get('delay', 3600)
     api_key = config.get('api_key')
     
-    #login to Hopsworks
+    # login to Hopsworks
     project = hopsworks.login()
     
-    #get feature store
+    # get feature store
     fs = project.get_feature_store(name='bc_weather_featurestore')
     
-    #get feature view
-    feature_view = fs.get_feature_view(
-    name='stops_lat_lon',
-    version=1
+    # get feature view with stops
+    feature_view_stops = fs.get_feature_view(
+        name='stops_lat_lon',
+        version=1
+    )
+    
+    # get or create weather data feature group
+    fg_weather = fs.get_or_create_feature_group(
+        name="weather_data",
+        version=1,
+        description="Weather data for bus stops",
+        primary_key=["weather_id"],
+        online_enabled=True,
+        event_time="timestamp",
     )
     
     try:
         while True:
             #get data from feature view, save to dataframe
-            df = feature_view.get_batch_data()
+            df_stops = feature_view_stops.get_batch_data()
             
-            for index, row in df.iterrows():
-                stop_id = row['cislo_zastavky']
-                lat = row['zemepisna_sirka']
-                lon = row['zemepisna_dlzka']
-                town = row['obec']
-                stop_name = row['nazov_zastavky']
-
-                if lat == 0 or lon == 0:
-                    print(f"Ignoring row for bus stop {town}, {stop_name}: Latitude or longitude is zero.")
-                    continue
-
-                weather_data = call_weather_api(lat, lon, api_key)
-
+            weather_data_list = []
+            
+            for index, row in df_stops.iterrows():
+                stop_data = {
+                    'cislo_zastavky': row['cislo_zastavky'],
+                    'zemepisna_sirka': row['zemepisna_sirka'],
+                    'zemepisna_dlzka': row['zemepisna_dlzka'],
+                    'obec': row['obec'],
+                    'nazov_zastavky': row['nazov_zastavky']
+                }
+                
+                weather_data = process_weather_data(stop_data, api_key)
                 if weather_data:
-                    # Insert weather data into your process
-                    # insert_weather_data(conn, stop_id, weather_data)
-                    print("Weather data inserted successfully")
-                else:
-                    print(f"Failed to fetch weather forecast for bus stop {town}, {stop_name}.")
-                    sys.stdout.flush()
-
+                    weather_data_list.append(weather_data)
+            
+            # create dataframe with weather data
+            df_weather = pd.DataFrame(weather_data_list)
+            
+            fg_weather.insert(df_weather)
+            
             print(f"Sleeping for {delay}s")            
             time.sleep(delay)               
     except Exception as e:
         print(f"Error: {e}")
         sys.stdout.flush()
-
-    #conn = connect_to_database(config)
-
-    #if conn is not None:
-    #    create_weather_table(conn)
-
-    #    try:
-    #        while True:
-    #            with conn.cursor() as cursor:
-    #                cursor.execute("SELECT * FROM Locations") # Fetch all locations from the database
-    #                rows = cursor.fetchall()
-
-    #                for row in rows:
-    #                    stop_id, lat, lon, _, _, _, _, stop_name = row
-
-    #                    if lat == 0 or lon == 0:
-    #                        print(f"Ignoring row for bus stop {stop_name}: Latitude or longitude is zero.")
-    #                        continue
-
-    #                    weather_data = call_weather_api(lat, lon, api_key)
-
-    #                    if weather_data:
-    #                        insert_weather_data(conn, stop_id, weather_data)
-    #                    else:
-    #                        print(f"Failed to fetch weather forecast for bus stop {stop_name}.")
-    #                        sys.stdout.flush()
-    #            print(f"Sleeping for {delay}s")            
-    #            time.sleep(delay)               
-    #    except psycopg2.Error as e:
-    #        print(f"Error executing SQL query: {e}")
-    #        sys.stdout.flush()
-    #    finally:
-    #        conn.close()
-    #else:
-    #    print("Unable to connect to the database")
-    #    sys.stdout.flush()
 
 if __name__ == "__main__":
     main()

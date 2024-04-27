@@ -5,5 +5,5 @@
   "user": "rmtk",
   "password": "your_password",
   "host": "localhost",
-  "delay": 3600
+  "delay": 120
 }
